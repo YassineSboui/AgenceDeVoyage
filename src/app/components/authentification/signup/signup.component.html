@@ -11,6 +11,22 @@
       class="form-control"
       id="FormControlInput1"
       placeholder="Addresse Email"
+      #Email
+    />
+  </div>
+  <br />
+  <div class="d-flex justify-content-center">
+    <input
+      type="ext"
+      class="form-control"
+      id="FormControlInput4"
+      placeholder="Prénom"
+    />
+    <input
+      type="text"
+      class="form-control"
+      id="FormControlInput5"
+      placeholder="Nom"
     />
   </div>
   <br />
@@ -20,6 +36,7 @@
       class="form-control"
       id="FormControlInput2"
       placeholder="Mot de passe"
+      #MDP
     />
   </div>
   <br />
@@ -29,10 +46,13 @@
       class="form-control"
       id="FormControlInput3"
       placeholder="Verifier mot de passe"
+      #VerifMDP
     />
   </div>
   <br />
-  <button type="button" class="btn btn-outline-dark">S'inscrire</button>
+  <button type="button" class="btn btn-outline-dark" (click)="authentification(Email.value,MDP.value,VerifMDP.value)">S'inscrire</button>
   <br /><br />
-  <a routerLink="/signin" class="link-light">Vous avez déjà un compte? S'authentifier</a>
+  <a routerLink="/signin" class="link-light"
+    >Vous avez déjà un compte? S'authentifier</a
+  >
 </div>
