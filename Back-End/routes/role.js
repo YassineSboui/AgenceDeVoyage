@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const auth = require('../middleware/auth');
-const multer = require('../middleware/multer-config');
 const roleCtrl = require('../controllers/role');
 
 router.get('/', roleCtrl.getAllRole);

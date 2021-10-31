@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 exports.signup = (req, res, next) => {
-    const user = new User({...req.body });
+    const user = new User({ ...req.body });
     user.save()
         .then(() => res.status(201).json({ user }))
         .catch(error => res.status(400).json({ error }));
@@ -25,7 +25,7 @@ exports.login = (req, res, next) => {
     );
 };
 exports.modifyuser = (req, res, next) => {
-    User.updateOne({ _id: req.params.id }, {...req.body, _id: req.params.id })
+    User.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
         .then(() => res.status(200).json({ message: 'Objet modifié !' }))
         .catch(error => res.status(400).json({ error }));
 };
