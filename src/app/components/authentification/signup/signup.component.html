@@ -15,8 +15,7 @@
     />
   </div>
   <br />
-  <div class="d-flex justify-content-center" >
-    
+  <div class="d-flex justify-content-center">
     <input
       type="text"
       class="form-control c"
@@ -53,7 +52,21 @@
     />
   </div>
   <br />
-  <button type="button" class="btn btn-outline-dark" (click)="authentification(Email.value,MDP.value,VerifMDP.value,Nom.value,Prenom.value)">S'inscrire</button>
+  <button
+    type="button"
+    class="btn btn-outline-dark"
+    (click)="
+      authentification(
+        Email.value,
+        MDP.value,
+        VerifMDP.value,
+        Nom.value,
+        Prenom.value
+      )
+    "
+  >
+    S'inscrire
+  </button>
   <br /><br />
   <a routerLink="/signin" class="link-light"
     >Vous avez déjà un compte ? S'authentifier</a

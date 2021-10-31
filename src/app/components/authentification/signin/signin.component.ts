@@ -15,10 +15,7 @@ export class SigninComponent implements OnInit {
       mdp.length >= 8
     );
   }
-  authentification(
-    email: string,
-    password: string
-  ) {
+  authentification(email: string, password: string) {
     if (!email.match(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/)) {
       this.openSnackBar('Veillez saisir une adresse valide');
     } else if (!this.verifmdp(password)) {
