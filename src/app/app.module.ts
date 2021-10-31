@@ -10,12 +10,13 @@ import { Error404Component } from './components/error404/error404.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
     SignupComponent,
-    Error404Component,
+    Error404Component
   ],
   imports: [
     BrowserModule,

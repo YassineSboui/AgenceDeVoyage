@@ -1,11 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { User } from 'src/app/models/user';
+import { AuthentificationService } from 'src/app/services/authentification.service';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
+  role: string = '617af3608b6a8a1648fd396c';
+  user: User = new User();
   verifmdp(mdp: string) {
     return (
       mdp.match(/[0-9]/g) &&
@@ -32,10 +37,24 @@ export class SignupComponent implements OnInit {
     } else if (password !== checkpassword) {
       this.openSnackBar('Verifier votre mot de passe');
     } else {
+      this.user = new User(email, password, nom, prenom, this.role);
+      this.authentificationService.createUser(this.user).subscribe(
+        (response) => {
+          console.log(response);
+          this.openSnackBar('Votre compte a été créé avec succès');
+        },
+        (error) => {
+          console.log(error);
+          this.openSnackBar('Email Deja Existant');
+        }
+      );
     }
   }
 
-  constructor(private _snackBar: MatSnackBar) {}
+  constructor(
+    private _snackBar: MatSnackBar,
+    private authentificationService: AuthentificationService
+  ) {}
   openSnackBar(message: string) {
     this._snackBar.open(message, 'ERREUR', { duration: 3000 });
   }

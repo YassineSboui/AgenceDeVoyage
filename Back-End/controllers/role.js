@@ -2,7 +2,7 @@ const Role = require('../models/role');
 const User = require('../models/user');
 
 exports.createrole = (req, res, next) => {
-    const role = new Role({...req.body });
+    const role = new Role({ ...req.body });
     role.save()
         .then(() => res.status(201).json({ role }))
         .catch(error => res.status(400).json({ error }));
@@ -23,12 +23,12 @@ exports.getOnerole = (req, res, next) => {
     );
 };
 exports.modifyrole = (req, res, next) => {
-    Role.updateOne({ _id: req.params.id }, {...req.body, _id: req.params.id })
+    Role.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
         .then(() => res.status(200).json({ message: 'Objet modifié !' }))
         .catch(error => res.status(400).json({ error }));
 };
 
-exports.deleterole = async(req, res, next) => {
+exports.deleterole = async (req, res, next) => {
     const userRole = await User.find({ role: req.params.id });
 
     if (userRole) {
