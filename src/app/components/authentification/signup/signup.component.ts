@@ -9,7 +9,8 @@ import { AuthentificationService } from 'src/app/services/authentification.servi
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
-  role: string = '617af3608b6a8a1648fd396c';
+  Client: string = '617af3608b6a8a1648fd396c';
+  Admin: string = '617af3528b6a8a1648fd396a';
   user: User = new User();
   verifmdp(mdp: string) {
     return (
@@ -37,7 +38,7 @@ export class SignupComponent implements OnInit {
     } else if (password !== checkpassword) {
       this.openSnackBar('Verifier votre mot de passe');
     } else {
-      this.user = new User(email, password, nom, prenom, this.role);
+      this.user = new User(email, password, nom, prenom, this.Client);
       this.authentificationService.createUser(this.user).subscribe(
         (response) => {
           console.log(response);
