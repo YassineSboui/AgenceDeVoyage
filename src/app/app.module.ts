@@ -7,21 +7,24 @@ import { SigninComponent } from './components/authentification/signin/signin.com
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignupComponent } from './components/authentification/signup/signup.component';
 import { Error404Component } from './components/error404/error404.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
     SignupComponent,
-    Error404Component
+    Error404Component,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatSnackBarModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

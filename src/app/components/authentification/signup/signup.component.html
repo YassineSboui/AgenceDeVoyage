@@ -15,18 +15,21 @@
     />
   </div>
   <br />
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center" >
+    
     <input
-      type="ext"
-      class="form-control"
+      type="text"
+      class="form-control c"
       id="FormControlInput4"
       placeholder="Prénom"
+      #Prenom
     />
     <input
       type="text"
-      class="form-control"
+      class="form-control c"
       id="FormControlInput5"
       placeholder="Nom"
+      #Nom
     />
   </div>
   <br />
@@ -50,9 +53,9 @@
     />
   </div>
   <br />
-  <button type="button" class="btn btn-outline-dark" (click)="authentification(Email.value,MDP.value,VerifMDP.value)">S'inscrire</button>
+  <button type="button" class="btn btn-outline-dark" (click)="authentification(Email.value,MDP.value,VerifMDP.value,Nom.value,Prenom.value)">S'inscrire</button>
   <br /><br />
   <a routerLink="/signin" class="link-light"
-    >Vous avez déjà un compte? S'authentifier</a
+    >Vous avez déjà un compte ? S'authentifier</a
   >
 </div>

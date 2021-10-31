@@ -3,15 +3,9 @@
   height: 100vh;
   text-align: center;
   padding: 15vh;
-  padding-left: 80vh;
-  padding-right: 80vh;
+ 
 }
-input {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 25px;
-  color: aliceblue;
-}
-button{
+input ,button {
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 25px;
   color: aliceblue;
