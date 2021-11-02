@@ -9,6 +9,8 @@ import { SignupComponent } from './components/authentification/signup/signup.com
 import { Error404Component } from './components/error404/error404.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AccueilComponent } from './components/accueil/accueil.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     SigninComponent,
     SignupComponent,
     Error404Component,
+    AccueilComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

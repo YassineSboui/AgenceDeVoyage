@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +13,7 @@ export class AuthentificationService {
   createUser(user: Object) {
     return this.http.post(`${this.baseUrl}signup/`, user);
   }
-  getUser(id: number) {
-    return this.http.get(`${this.baseUrl}login/${id}`);
+  getUser(user: Object) {
+    return this.http.post(`${this.baseUrl}login/`, user);
   }
 }

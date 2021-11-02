@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from 'src/app/models/user';
 import { AuthentificationService } from 'src/app/services/authentification.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -28,25 +29,26 @@ export class SignupComponent implements OnInit {
     prenom: string
   ) {
     if (!email.match(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/)) {
-      this.openSnackBar('Veillez saisir une adresse valide');
+      this.ErrorSnackBar('Veillez saisir une adresse valide');
     } else if (prenom == '') {
-      this.openSnackBar('Veillez saisir votre Prenom');
+      this.ErrorSnackBar('Veillez saisir votre Prenom');
     } else if (nom == '') {
-      this.openSnackBar('Veillez saisir votre Nom');
+      this.ErrorSnackBar('Veillez saisir votre Nom');
     } else if (!this.verifmdp(password)) {
-      this.openSnackBar('veillez saisir un mot de  passe valide');
+      this.ErrorSnackBar('veillez saisir un mot de  passe valide');
     } else if (password !== checkpassword) {
-      this.openSnackBar('Verifier votre mot de passe');
+      this.ErrorSnackBar('Verifier votre mot de passe');
     } else {
       this.user = new User(email, password, nom, prenom, this.Client);
       this.authentificationService.createUser(this.user).subscribe(
         (response) => {
           console.log(response);
-          this.openSnackBar('Votre compte a été créé avec succès');
+          this.SuccessSnackBar('Votre compte a été créé avec succès');
+          this.router.navigate(['../signin']);
         },
         (error) => {
           console.log(error);
-          this.openSnackBar('Email Deja Existant');
+          this.ErrorSnackBar('Email Deja Existant');
         }
       );
     }
@@ -54,9 +56,13 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private _snackBar: MatSnackBar,
-    private authentificationService: AuthentificationService
+    private authentificationService: AuthentificationService,
+    private router: Router
   ) {}
-  openSnackBar(message: string) {
+ SuccessSnackBar(message: string) {
+    this._snackBar.open(message, 'REUSSI', { duration: 3000 });
+  }
+ ErrorSnackBar(message: string) {
     this._snackBar.open(message, 'ERREUR', { duration: 3000 });
   }
   ngOnInit(): void {}
