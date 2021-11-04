@@ -1,9 +1,9 @@
 export class User {
   constructor(
-    private email?: string,
-    private password?: string,
-    private firstName?: string,
-    private lastName?: string,
-    private role?: string
+    public email?: string,
+    public password?: string,
+    public firstName?: string,
+    public lastName?: string,
+    public role?: string
   ) {}
 }

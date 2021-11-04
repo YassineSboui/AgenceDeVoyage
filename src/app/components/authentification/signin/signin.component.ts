@@ -1,3 +1,4 @@
+import { AccueilComponent } from './../../accueil/accueil.component';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from 'src/app/models/user';
@@ -29,8 +30,12 @@ export class SigninComponent implements OnInit {
       this.user = new User(email, password);
       this.authentificationService.getUser(this.user).subscribe(
         (response) => {
-          console.log(response);
+          console.log(response)
           this.SuccessSnackBar('Connexion réussie');
+          this.authentificationService.SignIn(response.User)
+          console.log(this.authentificationService.loggedUser);
+          console.log(this.authentificationService.isloggedIn);
+          console.log(this.authentificationService.role);
           this.router.navigate(['../accueil']);
         },
         (error) => {
