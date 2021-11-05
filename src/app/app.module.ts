@@ -11,6 +11,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { OffreComponent } from './components/offre/offre.component';
+import { DestinationComponent } from './components/destination/destination.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     Error404Component,
     AccueilComponent,
     NavbarComponent,
+    OffreComponent,
+    DestinationComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

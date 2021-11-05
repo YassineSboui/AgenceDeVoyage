@@ -18,8 +18,7 @@ export class AuthentificationService {
     this.loggedUser = undefined;
     this.role = undefined;
     localStorage.removeItem('loggedUser');
-    localStorage.setItem('isloggedIn', String(this.isloggedIn));
-    // this.router.navigate(['/signin']);
+    localStorage.removeItem('isloggedIn');
   }
   SignIn(user: User) {
     this.loggedUser = user.firstName + ' ' + user.lastName;
@@ -31,10 +30,10 @@ export class AuthentificationService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  createUser(user: Object) : Observable<any> {
+  createUser(user: Object): Observable<any> {
     return this.http.post(`${this.baseUrl}signup/`, user);
   }
-  getUser(user: Object) : Observable<any>{
+  getUser(user: Object): Observable<any> {
     return this.http.post(`${this.baseUrl}login/`, user);
   }
 }

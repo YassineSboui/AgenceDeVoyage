@@ -29,13 +29,9 @@ export class SigninComponent implements OnInit {
     } else {
       this.user = new User(email, password);
       this.authentificationService.getUser(this.user).subscribe(
-        (response) => {
-          console.log(response)
+        (response) => { 
           this.SuccessSnackBar('Connexion réussie');
-          this.authentificationService.SignIn(response.User)
-          console.log(this.authentificationService.loggedUser);
-          console.log(this.authentificationService.isloggedIn);
-          console.log(this.authentificationService.role);
+          this.authentificationService.SignIn(response.User);
           this.router.navigate(['../accueil']);
         },
         (error) => {

@@ -42,12 +42,9 @@ export class SignupComponent implements OnInit {
       this.user = new User(email, password, nom, prenom, this.Client);
       this.authentificationService.createUser(this.user).subscribe(
         (response) => {
-          console.log(response);
           this.SuccessSnackBar('Votre compte a été créé avec succès');
-          this.router.navigate(['../signin']);
         },
         (error) => {
-          console.log(error);
           this.ErrorSnackBar('Email Deja Existant');
         }
       );

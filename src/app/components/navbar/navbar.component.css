@@ -1,0 +1,12 @@
+.img {
+  width: 3vw;
+}
+span {
+  font-family: "Times New Roman", Times, serif;
+  color: azure;
+}
+.active {
+  font-weight: bold;
+  color: rgba(240, 255, 255, 0.616);
+  zoom: 120%;
+}

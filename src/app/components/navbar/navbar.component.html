@@ -2,36 +2,53 @@
   class="navbar navbar-expand-sm navbar-light"
   style="background-image: url('assets/Wallpaper.jpg')"
 >
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Tunis Travel</a>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
+  <div class="container">
+    <a class="navbar-brand"
+      ><img src="assets/Logo.png" alt="Travel Agency" class="img" /><span
+        >Around The World</span
+      ></a
+    >
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Accueil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Destination</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Offre</a>
-        </li>
-
-        <li class="nav-item dropdown" *ngIf="user!=null && connected==true">
           <a
-            class="nav-link dropdown-toggle"
-            id="navbarDropdownMenuLink"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
+            class="navbar-brand"
+            aria-current="page"
+            routerLink="/accueil"
+            routerLinkActive="active"
+            >Accueil</a
           >
-            {{user}}
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item"  (click)="deconnecter()">Se deconecter</a></li>
-          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="navbar-brand" routerLink="/destination" routerLinkActive="active"
+            >Destination</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="navbar-brand" routerLink="/offre" routerLinkActive="active"
+            >Offre</a
+          >
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item" *ngIf="user != null && connected == true">
+          {{ user | uppercase }}
+          <img
+            src="https://img.icons8.com/emoji/12/000000/green-circle-emoji.png"
+          />
+          <button type="button" class="btn btn-link" (click)="deconnecter()">
+            <img
+              src="https://img.icons8.com/external-sbts2018-solid-sbts2018/20/000000/external-logout-social-media-sbts2018-solid-sbts2018.png"
+            />
+          </button>
         </li>
         <li class="nav-item dropdown" *ngIf="!connected">
-          <button type="button" class="btn btn-dark" (click)="connecter()">Se Connecter</button>
+          <button type="button" class="btn btn-dark" (click)="connecter()">
+            Se Connecter
+            <img
+              src="https://img.icons8.com/emoji/12/000000/red-circle-emoji.png"
+            />
+          </button>
         </li>
       </ul>
     </div>
