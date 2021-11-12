@@ -14,6 +14,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { OffreComponent } from './components/offre/offre.component';
 import { DestinationComponent } from './components/destination/destination.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { MapComponent } from './components/map/map.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ContactComponent } from './components/contact/contact.component';
     OffreComponent,
     DestinationComponent,
     ContactComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
