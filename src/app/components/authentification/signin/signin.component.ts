@@ -29,7 +29,7 @@ export class SigninComponent implements OnInit {
     } else {
       this.user = new User(email, password);
       this.authentificationService.getUser(this.user).subscribe(
-        (response) => { 
+        (response) => {
           this.SuccessSnackBar('Connexion réussie');
           this.authentificationService.SignIn(response.User);
           this.router.navigate(['../accueil']);
