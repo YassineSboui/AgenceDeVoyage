@@ -55,7 +55,7 @@ export class MapComponent implements AfterViewInit {
                 element.name +
                 '</h5><p class="card-text">' +
                 element.description +
-                '</p><a href="#" class="btn btn-primary">PLus de Details</a></div></div>'
+                '</p><a href="#" class="btn btn-primary">Plus de Details</a></div></div>'
             )
         );
       },

@@ -5,12 +5,12 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class DentinationService {
-  private baseUrl = 'http://localhost:3000/api/destination/';
+export class MailService {
+  private baseUrl = 'http://localhost:3000/api/mail/';
 
   constructor(private http: HttpClient) {}
 
-  getDentination(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+  postmail(mail: Object): Observable<any> {
+    return this.http.post(`${this.baseUrl}`, mail);
   }
 }

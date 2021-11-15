@@ -17,20 +17,18 @@
       <form
         id="contact-form"
         name="contact-form"
-        action="mail.php"
-        method="POST"
       >
         <div class="row">
           <div class="col-md-6">
             <div class="md-form mb-0">
-              <input type="text" id="name" name="name" class="form-control" />
+              <input type="text" id="name" name="name" class="form-control" #name/>
               <label for="name" class="">Your name</label>
             </div>
           </div>
 
           <div class="col-md-6">
             <div class="md-form mb-0">
-              <input type="text" id="email" name="email" class="form-control" />
+              <input type="text" id="email" name="email" class="form-control" #mail/>
               <label for="email" class="">Your email</label>
             </div>
           </div>
@@ -44,6 +42,7 @@
                 id="subject"
                 name="subject"
                 class="form-control"
+                #subject
               />
               <label for="subject" class="">Subject</label>
             </div>
@@ -59,6 +58,7 @@
                 name="message"
                 rows="2"
                 class="form-control md-textarea"
+                #text
               ></textarea>
               <label for="message">Your message</label>
             </div>
@@ -67,7 +67,12 @@
       </form>
 
       <div class="text-center text-md-left">
-        <button class="btn btn-dark" onclick="">Send</button>
+        <button class="btn btn-dark" (click)="sendmail(
+          name.value,
+          mail.value,
+          subject.value,
+          text.value
+        )">Send</button>
       </div>
       <div class="status"></div>
     </div>
