@@ -15,6 +15,7 @@ import { OffreComponent } from './components/offre/offre.component';
 import { DestinationComponent } from './components/destination/destination.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { MapComponent } from './components/map/map.component';
+import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MapComponent } from './components/map/map.component';
     OffreComponent,
     DestinationComponent,
     ContactComponent,
-    MapComponent
+    MapComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
