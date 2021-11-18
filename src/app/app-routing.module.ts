@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'offre', component: OffreComponent },
   { path: 'destination', component: DestinationComponent },
   { path: 'admin', component: DashboardComponent },
-  { path: '', redirectTo: 'signin', pathMatch: 'full' },
+  { path: '', redirectTo: 'accueil', pathMatch: 'full' },
   { path: '**', component: Error404Component },
 ];
 

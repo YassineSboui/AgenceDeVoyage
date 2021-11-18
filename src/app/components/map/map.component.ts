@@ -16,6 +16,10 @@ const iconDefault = L.icon({
   shadowSize: [41, 41],
 });
 L.Marker.prototype.options.icon = iconDefault;
+[39.8282, -98.5795];
+var corner1 = L.latLng(52.246640,-61.850363),
+  corner2 = L.latLng(23.853691,-133.968797),
+  bounds = L.latLngBounds(corner1, corner2);
 
 @Component({
   selector: 'app-map',
@@ -31,12 +35,14 @@ export class MapComponent implements AfterViewInit {
       center: [39.8282, -98.5795],
       zoom: 5,
     });
+    this.map.setView([39.8282, -98.5795]);
+    this.map.setMaxBounds(bounds);
 
     const tiles = L.tileLayer(
       'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       {
         maxZoom: 5,
-        minZoom: 5,
+        minZoom: 4,
       }
     );
 

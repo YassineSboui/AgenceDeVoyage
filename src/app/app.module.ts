@@ -13,9 +13,15 @@ import { AccueilComponent } from './components/accueil/accueil.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { OffreComponent } from './components/offre/offre.component';
 import { DestinationComponent } from './components/destination/destination.component';
-import { ContactComponent } from './components/contact/contact.component';
+import { ContactComponent } from './components/accueil/contact/contact.component';
 import { MapComponent } from './components/map/map.component';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
+import { CarousselComponent } from './components/accueil/caroussel/caroussel.component';
+import { AboutUsComponent } from './components/accueil/about-us/about-us.component';
+import { CardsComponent } from './components/accueil/cards/cards.component';
+import { CardComponent } from './components/accueil/cards/card/card.component';
+import { FooterComponent } from './components/accueil/footer/footer.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -29,7 +35,12 @@ import { DashboardComponent } from './components/admin/dashboard/dashboard.compo
     DestinationComponent,
     ContactComponent,
     MapComponent,
-    DashboardComponent
+    DashboardComponent,
+    CarousselComponent,
+    AboutUsComponent,
+    CardsComponent,
+    CardComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +48,7 @@ import { DashboardComponent } from './components/admin/dashboard/dashboard.compo
     BrowserAnimationsModule,
     HttpClientModule,
     MatSnackBarModule,
+    MDBBootstrapModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
