@@ -49,8 +49,6 @@ export class MapComponent implements AfterViewInit {
     tiles.addTo(this.map);
     this.DentinationService.getDentination().subscribe(
       (response) => {
-        console.log(response);
-
         response.map((element: Dentination) =>
           L.marker([element.latitude, element.longitude])
             .addTo(this.map)
