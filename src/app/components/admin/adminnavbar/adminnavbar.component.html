@@ -1,0 +1,36 @@
+<!--Navbar-->
+<div>
+  <mdb-navbar
+    SideClass="navbar navbar-expand-lg navbar-dark unique-color fixed-top scrolling-navbar"
+    [containerInside]="false"
+  >
+    <!-- Navbar brand -->
+    <mdb-navbar-brand
+      ><a class="navbar-brand" href="#"
+        ><img
+          src="assets/Logos/Logo.png"
+          alt="Travel Agency"
+          class="img"
+        /><span>Around The World</span></a
+      ></mdb-navbar-brand
+    >
+
+    <!-- Collapsible content -->
+    <links>
+      <!-- Links -->
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link waves-light"
+            routerLink="/Gestiondestination"
+            routerLinkActive="active"
+            mdbWavesEffect
+            >Gestion Destination</a
+          >
+        </li>
+      </ul>
+    </links>
+    <!-- Collapsible content -->
+  </mdb-navbar>
+</div>
+<!--/.Navbar-->
