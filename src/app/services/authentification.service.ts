@@ -19,6 +19,7 @@ export class AuthentificationService {
     this.role = undefined;
     localStorage.removeItem('loggedUser');
     localStorage.removeItem('isloggedIn');
+    localStorage.removeItem('UserRole');
   }
   SignIn(user: User) {
     this.loggedUser = user.firstName + ' ' + user.lastName;

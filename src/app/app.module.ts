@@ -25,6 +25,7 @@ import { AdminnavbarComponent } from './components/admin/adminnavbar/adminnavbar
 import { MappComponent } from './components/admin/mapp/mapp.component';
 import { GestiondestinationComponent } from './components/admin/gestiondestination/gestiondestination.component';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
+import { GuardService } from './services/guard.service';
 
 
 @NgModule({
@@ -58,7 +59,7 @@ import { DashboardComponent } from './components/admin/dashboard/dashboard.compo
     MatSnackBarModule,
     MDBBootstrapModule.forRoot(),
   ],
-  providers: [],
+  providers: [GuardService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

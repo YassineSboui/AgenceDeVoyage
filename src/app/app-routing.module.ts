@@ -7,15 +7,20 @@ import { DestinationComponent } from './components/destination/destination.compo
 import { Error404Component } from './components/error404/error404.component';
 import { OffreComponent } from './components/offre/offre.component';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
-import {GestiondestinationComponent } from './components/admin/gestiondestination/gestiondestination.component';
+import { GestiondestinationComponent } from './components/admin/gestiondestination/gestiondestination.component';
+import { GuardService } from './services/guard.service';
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'accueil', component: AccueilComponent },
   { path: 'offre', component: OffreComponent },
   { path: 'destination', component: DestinationComponent },
-  { path: 'admin', component: DashboardComponent },
-  { path: 'Gestiondestination', component: GestiondestinationComponent },
+  { path: 'admin', component: DashboardComponent, canActivate: [GuardService] },
+  {
+    path: 'admin/Gestiondestination',
+    component: GestiondestinationComponent,
+    canActivate: [GuardService],
+  },
   { path: '', redirectTo: 'accueil', pathMatch: 'full' },
   { path: '**', component: Error404Component },
 ];

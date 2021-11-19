@@ -80,7 +80,13 @@
             class="dropdown-menu dropdown-menu-right dropdown dropdown-primary"
             role="menu"
           >
-            <a class="dropdown-item waves-light" mdbWavesEffect>My account</a>
+            <a
+              *ngIf="user != null && admin == true"
+              class="dropdown-item waves-light"
+              mdbWavesEffect
+              routerLink="/admin"
+              >Admin Area</a
+            >
             <a
               class="dropdown-item waves-light"
               mdbWavesEffect

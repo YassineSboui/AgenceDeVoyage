@@ -22,11 +22,56 @@
         <li class="nav-item">
           <a
             class="nav-link waves-light"
-            routerLink="/Gestiondestination"
+            routerLink="/admin/Gestiondestination"
             routerLinkActive="active"
             mdbWavesEffect
-            >Gestion Destination</a
+            >Destination Management</a
           >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link waves-light"
+           
+            routerLinkActive="active"
+            mdbWavesEffect
+            >Hotels Management</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link waves-light"
+          
+            routerLinkActive="active"
+            mdbWavesEffect
+            >Offers Management</a
+          >
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <li class="nav-item dropdown" dropdown>
+          <a
+            dropdownToggle
+            mdbWavesEffect
+            type="button"
+            class="nav-link dropdown-toggle waves-light"
+            mdbWavesEffect
+          >
+            <mdb-icon fas icon="user"></mdb-icon> {{ user | uppercase
+            }}<span class="caret"></span
+          ></a>
+          <div
+            *dropdownMenu
+            class="dropdown-menu dropdown-menu-right dropdown dropdown-primary"
+            role="menu"
+          >
+            <a
+              class="dropdown-item waves-light"
+              mdbWavesEffect
+              (click)="deconnecter()"
+              >Log out</a
+            >
+          </div>
         </li>
       </ul>
     </links>

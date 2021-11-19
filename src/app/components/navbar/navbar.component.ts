@@ -14,11 +14,11 @@ import { SignupComponent } from './../../components/authentification/signup/sign
 export class NavbarComponent implements OnInit {
   user: string = String(localStorage.getItem('loggedUser'));
   connected: boolean = Boolean(localStorage.getItem('isloggedIn'));
+  admin: boolean = (localStorage.getItem('UserRole'))=='617af3528b6a8a1648fd396a';
   identifiant: boolean;
   deconnecter() {
     this.authentificationService.logout();
     this.connected = false;
-    this.identifiant = this.activatedRoute.snapshot.params['id'];
   }
   connecter() {
     this.router.navigate(['/signin']);
