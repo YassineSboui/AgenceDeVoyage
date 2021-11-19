@@ -32,6 +32,7 @@ export class SigninComponent implements OnInit {
         (response) => {
           this.SuccessSnackBar('Connexion réussie');
           this.authentificationService.SignIn(response.User);
+          console.log(response.User);
           this.router.navigate(['../accueil']);
         },
         (error) => {

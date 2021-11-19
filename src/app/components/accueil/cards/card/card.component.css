@@ -9,3 +9,9 @@ h1 {
 p {
   text-align: center;
 }
+.same{
+  height: 45vh;
+}
+.padding{
+  padding-top: 1vh;
+}

@@ -1,70 +1,95 @@
-<!--Navbar-->
 <div>
-<mdb-navbar
-  SideClass="navbar navbar-expand-lg navbar-dark unique-color fixed-top scrolling-navbar"
-  [containerInside]="false"
->
-  <!-- Navbar brand -->
-  <mdb-navbar-brand
-    ><a class="navbar-brand" href="#"
-      ><img src="assets/Logos/Logo.png" alt="Travel Agency" class="img" /><span
-        >Around The World</span
-      ></a
-    ></mdb-navbar-brand
+  <mdb-navbar
+    SideClass="navbar navbar-expand-lg navbar-dark unique-color fixed-top scrolling-navbar"
+    [containerInside]="true"
   >
+    <mdb-navbar-brand
+      ><a class="navbar-brand" href="#"
+        ><img
+          src="assets/Logos/Logo.png"
+          alt="Travel Agency"
+          class="img"
+        /><span>Around The World</span></a
+      ></mdb-navbar-brand
+    >
 
-  <!-- Collapsible content -->
-  <links>
-    <!-- Links -->
-    <ul class="navbar-nav ms-auto">
-      <li class="nav-item">
-        <a
-          class="nav-link waves-light"
-          routerLink="/accueil"
-          routerLinkActive="active"
-          mdbWavesEffect
-          >Home</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          class="nav-link waves-light"
-          routerLink="/destination"
-          routerLinkActive="active"
-          mdbWavesEffect
-          >Destinations</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          class="nav-link waves-light"
-          routerLink="/offre"
-          routerLinkActive="active"
-          mdbWavesEffect
-          >Offers</a
-        >
-      </li>
-    </ul>
+    <links>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link waves-light"
+            routerLink="/accueil"
+            routerLinkActive="active"
+            mdbWavesEffect
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link waves-light"
+            routerLink="/destination"
+            routerLinkActive="active"
+            mdbWavesEffect
+            >Destinations</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link waves-light"
+            routerLink="/offre"
+            routerLinkActive="active"
+            mdbWavesEffect
+            >Offers</a
+          >
+        </li>
+      </ul>
 
-    <!-- Links -->
-
-    <ul class="navbar-nav ml-auto nav-flex-icons">
-      <li class="nav-item" *ngIf="!connected">
-        <a class="nav-link">
-          <button mdbBtn color="success"  size="sm" class="my-0 waves-light btn btn-outline-success" type="submit" mdbWavesEffect (click)="connecter()">Log in</button>
-        </a>
-      </li>
-      <li class="nav-item dropdown" dropdown *ngIf="user != null && connected == true">
-        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-          <mdb-icon fas icon="user"></mdb-icon> {{ user | uppercase }}<span class="caret"></span></a>
-        <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-          <a class="dropdown-item waves-light" mdbWavesEffect >My account</a>
-          <a class="dropdown-item waves-light" mdbWavesEffect (click)="deconnecter()">Log out</a>
-        </div>
-      </li>
-    </ul>
-  </links>
-  <!-- Collapsible content -->
-</mdb-navbar>
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <li class="nav-item" *ngIf="!connected && !identifiant">
+          <a class="nav-link">
+            <button
+              mdbBtn
+              color="success"
+              size="sm"
+              class="my-0 waves-light btn btn-outline-success"
+              type="submit"
+              mdbWavesEffect
+              (click)="connecter()"
+            >
+              Log in
+            </button>
+          </a>
+        </li>
+        <li
+          class="nav-item dropdown"
+          dropdown
+          *ngIf="user != null && connected == true"
+        >
+          <a
+            dropdownToggle
+            mdbWavesEffect
+            type="button"
+            class="nav-link dropdown-toggle waves-light"
+            mdbWavesEffect
+          >
+            <mdb-icon fas icon="user"></mdb-icon> {{ user | uppercase
+            }}<span class="caret"></span
+          ></a>
+          <div
+            *dropdownMenu
+            class="dropdown-menu dropdown-menu-right dropdown dropdown-primary"
+            role="menu"
+          >
+            <a class="dropdown-item waves-light" mdbWavesEffect>My account</a>
+            <a
+              class="dropdown-item waves-light"
+              mdbWavesEffect
+              (click)="deconnecter()"
+              >Log out</a
+            >
+          </div>
+        </li>
+      </ul>
+    </links>
+  </mdb-navbar>
 </div>
-<!--/.Navbar-->

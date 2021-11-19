@@ -1,7 +1,8 @@
+<app-navbar></app-navbar>
 <div
   id="container"
   class="bg-image"
-  style="background-image: url('assets/Wallpaper.jpg')"
+  style="background-image: url('assets/Wallpaper1.jpg')"
 >
   <i class="bi bi-file-lock-fill"></i>
   <br /><br />
@@ -10,7 +11,7 @@
       type="email"
       class="form-control"
       id="FormControlInput1"
-      placeholder="Addresse Email"
+      placeholder="Email"
       #Email
     />
   </div>
@@ -20,7 +21,7 @@
       type="password"
       class="form-control"
       id="FormControlInput2"
-      placeholder="Mot de passe"
+      placeholder="Password"
       #MDP
     />
   </div>
@@ -30,10 +31,10 @@
     class="btn btn-outline-dark"
     (click)="authentification(Email.value, MDP.value)"
   >
-    S'identifier
+    Sign in
   </button>
   <br /><br />
-  <a routerLink="/signup" class="link-light"
-    >Vous n'avez pas de compte ? S'inscrire</a
+  <a routerLink="/signup" class="link-light">
+    You do not have an account ? Register now</a
   >
 </div>

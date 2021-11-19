@@ -2,7 +2,8 @@
   background-size: cover;
   height: 100vh;
   text-align: center;
-  padding: 15vh;
+  padding: 20vh;
+  margin-top: -10vh;
 }
 input,
 button {
