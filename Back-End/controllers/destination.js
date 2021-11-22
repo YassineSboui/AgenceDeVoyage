@@ -28,7 +28,7 @@ exports.modifydestination = (req, res, next) => {
 };
 
 exports.deletedestination = (req, res, next) => {
-    Destination.deleteOne({ _id: req.params.id })
+    Destination.deleteOne({ _id: req.params.name })
         .then(() => res.status(200).json({ message: 'Objet supprimé !' }))
         .catch(error => res.status(400).json({ error }));
 };

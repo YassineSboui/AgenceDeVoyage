@@ -15,7 +15,7 @@ export class CardsComponent implements OnInit {
     ),
     new Card(
       'Best Destinations',
-      'perspective on the world. One can find an assortment of wonderful historical sites and beautiful scenery such as beaches‚ mountains. If those attractions appeal to you‚ then the US would be perfect travel destinations.',
+      'Perspective on the world. One can find an assortment of wonderful historical sites and beautiful scenery such as beaches‚ mountains. If those attractions appeal to you‚ then the US would be perfect travel destinations.',
       'assets/Accueill/Cards/best-destination.png'
     ),
     new Card(
