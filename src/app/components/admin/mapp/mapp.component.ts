@@ -1,4 +1,4 @@
-import { Component, AfterViewInit,OnInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { Dentination } from 'src/app/models/dentination';
 import { DentinationService } from 'src/app/services/dentination.service';
@@ -25,17 +25,14 @@ var corner1 = L.latLng(52.24664, -61.850363),
   templateUrl: './mapp.component.html',
   styleUrls: ['./mapp.component.css'],
 })
-export class MappComponent implements AfterViewInit,OnInit {
+export class MappComponent implements AfterViewInit, OnInit {
   destinations: Dentination[] = [];
   private map!: L.Map;
-  
-  
-
 
   private initMap(): void {
     this.map = L.map('map', {
       center: [39.8282, -98.5795],
-      zoom: 5,
+      zoom: 4,
     });
     this.map.setView([39.8282, -98.5795]);
     this.map.setMaxBounds(bounds);
@@ -47,15 +44,21 @@ export class MappComponent implements AfterViewInit,OnInit {
         minZoom: 4,
       }
     );
-     
+
     tiles.addTo(this.map);
     this.DentinationService.getDentination().subscribe(
       (response) => {
         response.map((element: Dentination) =>
-          L.marker([element.latitude,element.longitude])
+          L.marker([element.latitude, element.longitude])
             .addTo(this.map)
             .bindPopup(
-              '<div class="card" style="width: 18rem;"><button type="button" class="btn btn-warning" onclick='+this.updateDestination(element)+'>Update</button> <br> <button type="button" class="btn btn-danger">Delete</button></div>'
+              '<div class="card" style="width: 18rem;"><img class="card-img-top" src=' +
+                element.image +
+                ' alt="Card image cap"><div class="card-body"><h5 class="card-title">' +
+                element.name +
+                '</h5><p class="card-text">' +
+                element.description +
+                '</p></div></div>'
             )
         );
       },
@@ -65,14 +68,12 @@ export class MappComponent implements AfterViewInit,OnInit {
     );
   }
   constructor(private DentinationService: DentinationService) {}
-  
+
   ngAfterViewInit(): void {
     this.initMap();
   }
-  ngOnInit(): void {
-    
-  }
-  updateDestination(element:Dentination){
+  ngOnInit(): void {}
+  updateDestination(element: Dentination) {
     console.log(element.name);
-  };
+  }
 }

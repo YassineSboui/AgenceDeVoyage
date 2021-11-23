@@ -1,3 +1,9 @@
 .medium{
     width: 80vw;
 }
+.background{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+img {  
+    height: 30vh;
+}

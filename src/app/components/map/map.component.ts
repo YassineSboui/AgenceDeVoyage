@@ -53,12 +53,13 @@ export class MapComponent implements AfterViewInit {
           L.marker([element.latitude, element.longitude])
             .addTo(this.map)
             .bindPopup(
-              '<img  src=' +
+              '<h4>' +
+                element.name +
+                '</h4><img  src=' +
                 element.image +
                 ' alt="Card image cap"  height="50" >'
-            ), 
-          
-        )
+            )
+        );
       },
       (error) => {
         console.log(error);

@@ -28,8 +28,9 @@ import { DashboardComponent } from './components/admin/dashboard/dashboard.compo
 import { GuardService } from './services/guard.service';
 import { ListdestinationComponent } from './components/destination/listdestination/listdestination.component';
 import { OnedestinationComponent } from './components/destination/onedestination/onedestination.component';
-  import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { PrixPipe } from './pipes/prix.pipe';
+import { AjoutdestinationComponent } from './components/admin/gestiondestination/ajoutdestination/ajoutdestination.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { PrixPipe } from './pipes/prix.pipe';
     ListdestinationComponent,
     OnedestinationComponent,
     PrixPipe,
+    AjoutdestinationComponent,
   ],
   imports: [
     BrowserModule,
