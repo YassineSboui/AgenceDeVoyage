@@ -17,8 +17,8 @@ const iconDefault = L.icon({
 });
 L.Marker.prototype.options.icon = iconDefault;
 [39.8282, -98.5795];
-var corner1 = L.latLng(52.246640,-61.850363),
-  corner2 = L.latLng(23.853691,-133.968797),
+var corner1 = L.latLng(52.24664, -61.850363),
+  corner2 = L.latLng(23.853691, -133.968797),
   bounds = L.latLngBounds(corner1, corner2);
 
 @Component({
@@ -33,7 +33,7 @@ export class MapComponent implements AfterViewInit {
   private initMap(): void {
     this.map = L.map('map', {
       center: [39.8282, -98.5795],
-      zoom: 5,
+      zoom: 3,
     });
     this.map.setView([39.8282, -98.5795]);
     this.map.setMaxBounds(bounds);
@@ -42,7 +42,7 @@ export class MapComponent implements AfterViewInit {
       'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       {
         maxZoom: 5,
-        minZoom: 4,
+        minZoom: 2,
       }
     );
 
@@ -53,15 +53,12 @@ export class MapComponent implements AfterViewInit {
           L.marker([element.latitude, element.longitude])
             .addTo(this.map)
             .bindPopup(
-              '<div class="card" style="width: 18rem;"><img class="card-img-top" src=' +
+              '<img  src=' +
                 element.image +
-                ' alt="Card image cap"><div class="card-body"><h5 class="card-title">' +
-                element.name +
-                '</h5><p class="card-text">' +
-                element.description +
-                '</p><a href="#" class="btn btn-primary">Plus de Details</a></div></div>'
-            )
-        );
+                ' alt="Card image cap"  height="50" >'
+            ), 
+          
+        )
       },
       (error) => {
         console.log(error);

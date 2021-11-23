@@ -26,7 +26,10 @@ import { MappComponent } from './components/admin/mapp/mapp.component';
 import { GestiondestinationComponent } from './components/admin/gestiondestination/gestiondestination.component';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { GuardService } from './services/guard.service';
-
+import { ListdestinationComponent } from './components/destination/listdestination/listdestination.component';
+import { OnedestinationComponent } from './components/destination/onedestination/onedestination.component';
+  import { MatPaginatorModule } from '@angular/material/paginator';
+import { PrixPipe } from './pipes/prix.pipe';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,9 @@ import { GuardService } from './services/guard.service';
     MappComponent,
     GestiondestinationComponent,
     DashboardComponent,
-   
+    ListdestinationComponent,
+    OnedestinationComponent,
+    PrixPipe,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +63,7 @@ import { GuardService } from './services/guard.service';
     HttpClientModule,
     MatSnackBarModule,
     MDBBootstrapModule.forRoot(),
+    MatPaginatorModule,
   ],
   providers: [GuardService],
   bootstrap: [AppComponent],

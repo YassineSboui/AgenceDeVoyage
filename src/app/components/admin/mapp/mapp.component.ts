@@ -55,7 +55,7 @@ export class MappComponent implements AfterViewInit,OnInit {
           L.marker([element.latitude,element.longitude])
             .addTo(this.map)
             .bindPopup(
-              '<div class="card" style="width: 18rem;"><button type="button" class="btn btn-warning" (click)='+this.updateDestination(element)+'>Update</button> <br> <button type="button" class="btn btn-danger">Delete</button></div>'
+              '<div class="card" style="width: 18rem;"><button type="button" class="btn btn-warning" onclick='+this.updateDestination(element)+'>Update</button> <br> <button type="button" class="btn btn-danger">Delete</button></div>'
             )
         );
       },
