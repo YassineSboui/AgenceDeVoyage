@@ -30,14 +30,13 @@ export class SigninComponent implements OnInit {
       this.user = new User(email, password);
       this.authentificationService.getUser(this.user).subscribe(
         (response) => {
-          this.SuccessSnackBar('Connexion réussie');
+          this.SuccessSnackBar('Connected Successfully');
           this.authentificationService.SignIn(response.User);
-          console.log(response.User);
           this.router.navigate(['../accueil']);
         },
         (error) => {
           console.log(error);
-          this.ErrorSnackBar('Echec de Connextion');
+          this.ErrorSnackBar('Connection Error');
         }
       );
     }
@@ -49,10 +48,10 @@ export class SigninComponent implements OnInit {
     private router: Router
   ) {}
   SuccessSnackBar(message: string) {
-    this._snackBar.open(message, 'REUSSI', { duration: 3000 });
+    this._snackBar.open(message, 'SUCCEEDED', { duration: 3000 });
   }
   ErrorSnackBar(message: string) {
-    this._snackBar.open(message, 'ERREUR', { duration: 3000 });
+    this._snackBar.open(message, 'ERROR', { duration: 3000 });
   }
   ngOnInit(): void {}
 }

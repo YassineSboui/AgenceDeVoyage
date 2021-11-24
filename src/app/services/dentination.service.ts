@@ -19,11 +19,11 @@ export class DentinationService {
   createDentination(destination: Object): Observable<any> {
     return this.http.post(`${this.baseUrl}`, destination);
   }
-  updateDentination(id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${id}`, value);
+  updateDentination(name: string, destination: Object): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/${name}`, destination);
   }
-  deleteDentination(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+  deleteDentination(name: string): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${name}`);
   }
   
 }

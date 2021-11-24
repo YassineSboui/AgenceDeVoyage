@@ -43,10 +43,11 @@ export class AjoutdestinationComponent implements OnInit {
       );
       this.DentinationService.createDentination(this.dentination).subscribe(
         (response) => {
-          this.SuccessSnackBar('Votre Destination a été créé avec succès');
+          this.SuccessSnackBar('Your Destination has been successfully created');
+          
         },
         (error) => {
-          this.ErrorSnackBar('Echec');
+          this.ErrorSnackBar(' Creation Error ');
         }
       );
     }
@@ -57,10 +58,10 @@ export class AjoutdestinationComponent implements OnInit {
     private DentinationService: DentinationService
   ) {}
   SuccessSnackBar(message: string) {
-    this._snackBar.open(message, 'REUSSI', { duration: 3000 });
+    this._snackBar.open(message, 'SUCCEEDED', { duration: 3000 });
   }
   ErrorSnackBar(message: string) {
-    this._snackBar.open(message, 'ERREUR', { duration: 3000 });
+    this._snackBar.open(message, 'ERROR', { duration: 3000 });
   }
 
 

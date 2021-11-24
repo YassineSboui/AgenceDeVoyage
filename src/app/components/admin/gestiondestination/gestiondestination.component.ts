@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Dentination } from 'src/app/models/dentination';
 import { DentinationService } from 'src/app/services/dentination.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gestiondestination',
@@ -34,7 +36,32 @@ export class GestiondestinationComponent implements OnInit {
     );
   }
 
-  constructor(private DentinationService: DentinationService) {}
+  destinationDelete(name : string) {
+    this.DentinationService.deleteDentination(name).subscribe(
+      (response) => {
+          this.SuccessSnackBar('Destination Deleted successfully');
+          this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['admin/Gestiondestination']);
+        });
+          
+        },
+        (error) => {
+          this.ErrorSnackBar('Failed Modification');
+        }
+    );
+  }
+
+  constructor(
+    private _snackBar: MatSnackBar,
+    private DentinationService: DentinationService,
+    private router: Router
+  ) {}
+  SuccessSnackBar(message: string) {
+    this._snackBar.open(message, 'SUCCEEDED', { duration: 3000 });
+  }
+  ErrorSnackBar(message: string) {
+    this._snackBar.open(message, 'ERROR', { duration: 3000 });
+  }
 
 
   ngOnInit(): void {

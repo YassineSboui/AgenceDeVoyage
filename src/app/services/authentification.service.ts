@@ -25,7 +25,6 @@ export class AuthentificationService {
     this.loggedUser = user.firstName + ' ' + user.lastName;
     this.isloggedIn = true;
     this.role = user.role;
-    console.log(this.role)
     localStorage.setItem('loggedUser', this.loggedUser);
     localStorage.setItem('UserRole', this.role); 
     localStorage.setItem('isloggedIn', String(this.isloggedIn));

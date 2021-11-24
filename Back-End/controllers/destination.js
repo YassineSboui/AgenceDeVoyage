@@ -22,13 +22,13 @@ exports.getOnedestination = (req, res, next) => {
     );
 };
 exports.modifydestination = (req, res, next) => {
-    Destination.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
+    Destination.updateOne({ name: req.params.id }, { ...req.body })
         .then(() => res.status(200).json({ message: 'Objet modifié !' }))
         .catch(error => res.status(400).json({ error }));
 };
 
 exports.deletedestination = (req, res, next) => {
-    Destination.deleteOne({ _id: req.params.name })
+    Destination.deleteOne({ name: req.params.id })
         .then(() => res.status(200).json({ message: 'Objet supprimé !' }))
         .catch(error => res.status(400).json({ error }));
 };

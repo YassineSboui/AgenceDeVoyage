@@ -20,10 +20,10 @@ export class ContactComponent implements OnInit {
       this.mail = new Mail(name, mail, subject, text);
       this.mailService.postmail(this.mail).subscribe(
         (response) => {
-          this.SuccessSnackBar('Mail Envoyé');
+          this.SuccessSnackBar('E-mail sended');
         },
         (error) => {
-          this.ErrorSnackBar("Echec D'envoie");
+          this.ErrorSnackBar("Fail to send");
         }
       );
     }
@@ -35,10 +35,10 @@ export class ContactComponent implements OnInit {
   ) {}
 
   SuccessSnackBar(message: string) {
-    this._snackBar.open(message, 'REUSSI', { duration: 3000 });
+    this._snackBar.open(message, 'SUCCEEDED', { duration: 3000 });
   }
   ErrorSnackBar(message: string) {
-    this._snackBar.open(message, 'ERREUR', { duration: 3000 });
+    this._snackBar.open(message, 'ERROR', { duration: 3000 });
   }
 
   ngOnInit(): void {}

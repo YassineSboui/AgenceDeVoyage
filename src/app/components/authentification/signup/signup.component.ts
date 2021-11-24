@@ -42,11 +42,11 @@ export class SignupComponent implements OnInit {
       this.user = new User(email, password, nom, prenom, this.Client);
       this.authentificationService.createUser(this.user).subscribe(
         (response) => {
-          this.SuccessSnackBar('Votre compte a été créé avec succès');
+          this.SuccessSnackBar('Your account has been successfully created');
           this.router.navigate(['signin']);
         },
         (error) => {
-          this.ErrorSnackBar('Email Deja Existant');
+          this.ErrorSnackBar('Already existing email');
         }
       );
     }
@@ -57,11 +57,11 @@ export class SignupComponent implements OnInit {
     private authentificationService: AuthentificationService,
     private router: Router
   ) {}
- SuccessSnackBar(message: string) {
-    this._snackBar.open(message, 'REUSSI', { duration: 3000 });
+  SuccessSnackBar(message: string) {
+    this._snackBar.open(message, 'SUCCEEDED', { duration: 3000 });
   }
- ErrorSnackBar(message: string) {
-    this._snackBar.open(message, 'ERREUR', { duration: 3000 });
+  ErrorSnackBar(message: string) {
+    this._snackBar.open(message, 'ERROR', { duration: 3000 });
   }
   ngOnInit(): void {}
 }
