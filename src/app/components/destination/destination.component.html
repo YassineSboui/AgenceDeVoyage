@@ -1,37 +1,46 @@
-<div style="background-color: aliceblue;">
 <app-navbar></app-navbar>
-<div class="row">
-  <div class="col-8">
-    <app-map></app-map>
+<div
+  style="
+    background-image: url('https://www.teahub.io/photos/full/93-938757_75-web-website-background-color.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  "
+>
+  <div class="row">
+    <div class="col-8">
+      <app-map></app-map>
+    </div>
+    <div class="col-4" style="padding-top: 1vh">
+      <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
+        <mdb-carousel-item>
+          <video class="video-fluid" autoplay loop muted>
+            <source
+              src="https://mdbootstrap.com/img/video/Tropical.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </mdb-carousel-item>
+        <mdb-carousel-item>
+          <video class="video-fluid" autoplay loop muted>
+            <source
+              src="https://mdbootstrap.com/img/video/forest.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </mdb-carousel-item>
+        <mdb-carousel-item>
+          <video class="video-fluid" autoplay loop muted>
+            <source
+              src="https://mdbootstrap.com/img/video/Tropical.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </mdb-carousel-item>
+      </mdb-carousel>
+    </div>
   </div>
-  <div class="col-4" style="padding-top: 1vh;">
-    <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
-      <mdb-carousel-item>
-        <video class="video-fluid" autoplay loop muted>
-          <source
-            src="https://mdbootstrap.com/img/video/Tropical.mp4"
-            type="video/mp4"
-          />
-        </video>
-      </mdb-carousel-item>
-      <mdb-carousel-item>
-        <video class="video-fluid" autoplay loop muted>
-          <source
-            src="https://mdbootstrap.com/img/video/forest.mp4"
-            type="video/mp4"
-          />
-        </video>
-      </mdb-carousel-item>
-      <mdb-carousel-item>
-        <video class="video-fluid" autoplay loop muted>
-          <source
-            src="https://mdbootstrap.com/img/video/Tropical.mp4"
-            type="video/mp4"
-          />
-        </video>
-      </mdb-carousel-item>
-    </mdb-carousel>
-  </div>
-</div>
-<app-listdestination></app-listdestination>
+  <app-listdestination></app-listdestination>
+  <br />
+  <app-footer></app-footer>
 </div>

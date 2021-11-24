@@ -31,6 +31,7 @@ import { OnedestinationComponent } from './components/destination/onedestination
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { PrixPipe } from './pipes/prix.pipe';
 import { AjoutdestinationComponent } from './components/admin/gestiondestination/ajoutdestination/ajoutdestination.component';
+import { UpdatedestinationComponent } from './components/admin/gestiondestination/updatedestination/updatedestination.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { AjoutdestinationComponent } from './components/admin/gestiondestination
     OnedestinationComponent,
     PrixPipe,
     AjoutdestinationComponent,
+    UpdatedestinationComponent,
   ],
   imports: [
     BrowserModule,

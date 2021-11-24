@@ -13,6 +13,9 @@ export class DentinationService {
   getDentination(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
+  getOneDentination(name: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${name}`);
+  }
   createDentination(destination: Object): Observable<any> {
     return this.http.post(`${this.baseUrl}`, destination);
   }

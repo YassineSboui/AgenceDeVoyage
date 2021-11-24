@@ -9,10 +9,24 @@ import { DentinationService } from 'src/app/services/dentination.service';
 })
 export class GestiondestinationComponent implements OnInit {
   destinations: Dentination[] = [];
+  destination: Dentination = new Dentination(" "," "," "," ",0,0,0);
   destinationlist() {
     this.DentinationService.getDentination().subscribe(
       (response) => {
         this.destinations = response;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+  
+  destinationSelect(city : string) {
+    this.DentinationService.getOneDentination(city).subscribe(
+      (response) => {
+        this.destination=response;
+        return this.destination ;
+
       },
       (error) => {
         console.log(error);

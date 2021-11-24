@@ -8,7 +8,7 @@ exports.createdestination = (req, res, next) => {
 };
 exports.getOnedestination = (req, res, next) => {
     Destination.findOne({
-        _id: req.params.id
+        name: req.params.id
     }).then(
         (destination) => {
             res.status(200).json(destination);
