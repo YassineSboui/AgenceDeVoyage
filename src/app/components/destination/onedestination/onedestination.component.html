@@ -42,7 +42,7 @@
       <br />
       <!-- Post data -->
       <!-- Read more button -->
-      <a mdbBtn color="success" mdbWavesEffect>Check For Hotels</a>
+      <a mdbBtn color="success" mdbWavesEffect [routerLink]="['/destination', destination.name]">Check For Hotels</a>
     </div>
     <!-- Grid column -->
   </div>
@@ -74,7 +74,7 @@
       <!-- Post data -->
 
       <!-- Read more button -->
-      <a mdbBtn color="pink" mdbWavesEffect class="mb-lg-0 mb-4"
+      <a mdbBtn color="pink" mdbWavesEffect class="mb-lg-0 mb-4" [routerLink]="['/destination', destination.name]"
         >Check For Hotels</a
       >
     </div>

@@ -6,6 +6,7 @@ const roleRoutes = require('./routes/role');
 const userRoutes = require('./routes/user');
 const destinationRoutes = require('./routes/destination');
 const mailRoutes = require('./routes/mail');
+const hotelsRoutes = require('./routes/hotels');
 
 mongoose.connect('mongodb+srv://User1:GAKdjyyyKZBIX6g7@mycluster.upxko.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
         useNewUrlParser: true,
@@ -25,5 +26,6 @@ app.use('/api/role', roleRoutes);
 app.use('/api/auth', userRoutes);
 app.use('/api/destination', destinationRoutes);
 app.use('/api/mail', mailRoutes);
+app.use('/api/hotels', hotelsRoutes);
 
 module.exports = app;

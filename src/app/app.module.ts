@@ -32,6 +32,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { PrixPipe } from './pipes/prix.pipe';
 import { AjoutdestinationComponent } from './components/admin/gestiondestination/ajoutdestination/ajoutdestination.component';
 import { UpdatedestinationComponent } from './components/admin/gestiondestination/updatedestination/updatedestination.component';
+import { HotelsComponent } from './components/hotels/hotels.component';
+import { HotelComponent } from './components/hotels/hotel/hotel.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,8 @@ import { UpdatedestinationComponent } from './components/admin/gestiondestinatio
     PrixPipe,
     AjoutdestinationComponent,
     UpdatedestinationComponent,
+    HotelsComponent,
+    HotelComponent
   ],
   imports: [
     BrowserModule,
