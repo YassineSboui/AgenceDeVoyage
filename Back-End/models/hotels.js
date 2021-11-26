@@ -5,9 +5,9 @@ const hotelsSchema = mongoose.Schema({
     name: { type: String, required: true, unique: true },
     description: { type: String, required: true },
     image: { type: String, required: true },
-    Rating: { type: Number,min: 0, max: 5,required: true },
-    Nightprice: { type: Number, required: true },
-    Promotion : { type: Number, min: 5, max: 90, required: true },
+    rating: { type: Number,min: 0, max: 5,required: true },
+    nightprice: { type: Number, required: true },
+    promotion : { type: Number, min: 5, max: 90, required: true },
     city: { type: String, ref: "Destination" }
 });
 
