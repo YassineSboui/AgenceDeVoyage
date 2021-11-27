@@ -8,4 +8,14 @@ h1 {
   font-weight: normal;
   line-height: 48px;
   margin: 0;
+  margin-left: -6vw;
+}
+h4 {
+  color: #c4e7ff;
+  font-family: "Trocchi", serif;
+  font-size: 25px;
+  font-weight: normal;
+  line-height: 48px;
+  margin: 0;
+  padding-left: 1vw;
 }

@@ -1,107 +1,46 @@
 <app-navbar></app-navbar>
-<div style="margin-top: -3vh">
-  <mdb-card class="my-4">
-    <div class="view view-cascade overlay waves-light" mdbWavesEffect>
-      <div class="d-flex justify-content-center">
-        <img src="{{ destination.image }}" />
+<div
+  style="
+    background-image: url('https://www.teahub.io/photos/full/93-938757_75-web-website-background-color.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  "
+>
+  <div style="margin-top: -3.5vh">
+    <mdb-card
+      class="my-4"
+      style="background-color: rgba(255, 255, 255, 0.2); padding-top: 2vh"
+    >
+      <div class="view view-cascade overlay waves-light" mdbWavesEffect>
+        <div class="d-flex justify-content-center">
+          <img src="{{ destination.image }}" />
+        </div>
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
       </div>
-      <a>
-        <div class="mask rgba-white-slight"></div>
-      </a>
-    </div>
-    <mdb-card-body class="text-center">
-      <mdb-card-title>
-        <h4>
-          <strong>{{ destination.name }}</strong>
-        </h4>
-      </mdb-card-title>
-      <h5 class="indigo-text">
-        <strong>{{ destination.abbreviation }}</strong>
-      </h5>
-      <mdb-card-text>
-        {{ destination.description }}
-      </mdb-card-text>
-    </mdb-card-body>
-  </mdb-card>
-</div>
-
-<div class="container d-flex justify-content-center">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card">
-        <div>
-          <img
-            src="https://i.imgur.com/7cNRozs.jpg"
-            class="img-responsive image"
-          />
-        </div>
-        <p class="rating">9.2</p>
-        <div class="card-body">
-          <h5 class="card-title">Hotel Single View</h5>
-          <p class="card-text">
-            <i class="fa fa-map-marker marker"></i> Singla street, New Delhi,
-            110034
-          </p>
-          <p class="card-text">
-            <i class="fa fa-star star-rating"></i
-            ><i class="fa fa-star star-rating"></i
-            ><i class="fa fa-star star-rating"></i
-            ><i class="fa fa-star star-rating"></i>
-          </p>
-          <p class="card-text">$ 1,399</p>
-        </div>
+      <mdb-card-body class="text-center">
+        <mdb-card-title>
+          <h4>
+            <strong>{{ destination.name }}</strong>
+          </h4>
+        </mdb-card-title>
+        <h5 class="indigo-text">
+          <strong>{{ destination.abbreviation }}</strong>
+        </h5>
+        <mdb-card-text>
+          {{ destination.description }}
+        </mdb-card-text>
+      </mdb-card-body>
+    </mdb-card>
+    <section class="section text-center">
+      <h2 class="font-weight-bold h1 py-5">
+        <strong>Our Best Hotels</strong>
+      </h2>
+      <div *ngFor="let hotel of hotels; index as i">
+        <app-hotel [hotel]="hotel" [nb]="i"></app-hotel>
       </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <div>
-          <img
-            src="https://i.imgur.com/CS59IJZ.jpg"
-            class="img-responsive image"
-          />
-        </div>
-        <p class="rating">9.6</p>
-        <div class="card-body">
-          <h5 class="card-title">Hotel Tutors Vally</h5>
-          <p class="card-text">
-            <i class="fa fa-map-marker marker"></i> Tutor
-            street,Frankfurt,Germany,34565
-          </p>
-          <p class="card-text">
-            <i class="fa fa-star star-rating"></i
-            ><i class="fa fa-star star-rating"></i
-            ><i class="fa fa-star star-rating"></i
-            ><i class="fa fa-star star-rating"></i
-            ><i class="fa fa-star star-rating"></i>
-          </p>
-          <p class="card-text">$ 2,399</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <div>
-          <img
-            src="https://i.imgur.com/LITAKvq.jpg"
-            class="img-responsive image"
-          />
-        </div>
-        <p class="rating">8.2</p>
-        <div class="card-body">
-          <h5 class="card-title">Hotel Architect View</h5>
-          <p class="card-text">
-            <i class="fa fa-map-marker marker"></i> Views street, New york,
-            11003
-          </p>
-          <p class="card-text">
-            <i class="fa fa-star star-rating"></i
-            ><i class="fa fa-star star-rating"></i
-            ><i class="fa fa-star star-rating"></i
-            ><i class="fa fa-star star-rating"></i>
-          </p>
-          <p class="card-text">$ 1,699</p>
-        </div>
-      </div>
-    </div>
+    </section>
   </div>
 </div>

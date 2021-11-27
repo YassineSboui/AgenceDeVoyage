@@ -7,8 +7,8 @@ const hotelsSchema = mongoose.Schema({
     image: { type: String, required: true },
     rating: { type: Number,min: 0, max: 5,required: true },
     nightprice: { type: Number, required: true },
-    promotion : { type: Number, min: 5, max: 90, required: true },
-    city: { type: String, ref: "Destination" }
+    promotion : { type: Number, min: 0, max: 90, required: true },
+    city: { type: String, required: true }
 });
 
 hotelsSchema.plugin(uniqueValidator);

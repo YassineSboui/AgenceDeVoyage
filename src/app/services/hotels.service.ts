@@ -11,19 +11,19 @@ export class HotelsService {
 
   constructor(private http: HttpClient) {}
 
-  getDentination(): Observable<any> {
+  getHotels(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
-  getOneDentination(name: string): Observable<any> {
+  getOneHotel(name: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/${name}`);
   }
-  createDentination(hotels: Object): Observable<any> {
+  createHotel(hotels: Object): Observable<any> {
     return this.http.post(`${this.baseUrl}`, hotels);
   }
-  updateDentination(name: string, hotels: Object): Observable<Object> {
+  updateHotel(name: string, hotels: Object): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${name}`, hotels);
   }
-  deleteDentination(name: string): Observable<any> {
+  deleteHotel(name: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${name}`);
   }
   
