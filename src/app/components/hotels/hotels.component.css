@@ -62,3 +62,8 @@ body {
 .star-rating {
   color: #f7b944;
 }
+img {
+  height: 50vh;
+  width: 70vw;
+  border-radius: 30px;
+}
