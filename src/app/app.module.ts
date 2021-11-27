@@ -28,12 +28,13 @@ import { DashboardComponent } from './components/admin/dashboard/dashboard.compo
 import { GuardService } from './services/guard.service';
 import { ListdestinationComponent } from './components/destination/listdestination/listdestination.component';
 import { OnedestinationComponent } from './components/destination/onedestination/onedestination.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { PrixPipe } from './pipes/prix.pipe';
 import { AjoutdestinationComponent } from './components/admin/gestiondestination/ajoutdestination/ajoutdestination.component';
 import { UpdatedestinationComponent } from './components/admin/gestiondestination/updatedestination/updatedestination.component';
 import { HotelsComponent } from './components/hotels/hotels.component';
 import { HotelComponent } from './components/hotels/hotel/hotel.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { HotelComponent } from './components/hotels/hotel/hotel.component';
     HttpClientModule,
     MatSnackBarModule,
     MDBBootstrapModule.forRoot(),
-    MatPaginatorModule,
+    MatFormFieldModule,
+    MatIconModule
   ],
   providers: [GuardService],
   bootstrap: [AppComponent],

@@ -18,6 +18,13 @@ button {
 i {
   zoom: 300%;
 }
-button{
+button {
   width: 15vw;
+}
+.hide {
+  width: 2.5vw;
+  margin-top: 5px;
+  margin-left: -40px;
+  border-color: rgba(0, 0, 0, 0);
+  color: black;
 }

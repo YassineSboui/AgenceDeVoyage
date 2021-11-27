@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class GestiondestinationComponent implements OnInit {
   destinations: Dentination[] = [];
-  destination: Dentination = new Dentination(" "," "," "," ",0,0,0);
+  destination: Dentination = new Dentination(' ', ' ', ' ', ' ', 0, 0, 0);
   destinationlist() {
     this.DentinationService.getDentination().subscribe(
       (response) => {
@@ -22,13 +22,12 @@ export class GestiondestinationComponent implements OnInit {
       }
     );
   }
-  
-  destinationSelect(city : string) {
+
+  destinationSelect(city: string) {
     this.DentinationService.getOneDentination(city).subscribe(
       (response) => {
-        this.destination=response;
-        return this.destination ;
-
+        this.destination = response;
+        return this.destination;
       },
       (error) => {
         console.log(error);
@@ -36,18 +35,19 @@ export class GestiondestinationComponent implements OnInit {
     );
   }
 
-  destinationDelete(name : string) {
+  destinationDelete(name: string) {
     this.DentinationService.deleteDentination(name).subscribe(
       (response) => {
-          this.SuccessSnackBar('Destination Deleted successfully');
-          this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
-          this.router.navigate(['admin/Gestiondestination']);
-        });
-          
-        },
-        (error) => {
-          this.ErrorSnackBar('Failed Modification');
-        }
+        this.SuccessSnackBar('Destination Deleted successfully');
+        this.router
+          .navigateByUrl('/RefreshComponent', { skipLocationChange: true })
+          .then(() => {
+            this.router.navigate(['admin/Gestiondestination']);
+          });
+      },
+      (error) => {
+        this.ErrorSnackBar('Failed Modification');
+      }
     );
   }
 
@@ -63,8 +63,7 @@ export class GestiondestinationComponent implements OnInit {
     this._snackBar.open(message, 'ERROR', { duration: 3000 });
   }
 
-
   ngOnInit(): void {
-   this.destinationlist();
+    this.destinationlist();
   }
 }

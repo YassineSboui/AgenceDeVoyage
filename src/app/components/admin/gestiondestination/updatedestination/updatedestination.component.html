@@ -3,27 +3,63 @@
     <h1 style="text-align: center">UPDATE DESTINATION</h1>
     <div class="col-md-6">
       <label for="inputlongitude" class="form-label">Longitude :</label>
-      <input type="text" class="form-control" id="inputlongitude" value={{city.longitude}} #long />
+      <input
+        type="text"
+        class="form-control"
+        id="inputlongitude"
+        value="{{ city.longitude }}"
+        #long
+      />
     </div>
     <div class="col-md-6">
       <label for="inputlatitude" class="form-label">Latitude :</label>
-      <input type="text" class="form-control" id="inputlatitude" value={{city.latitude}} #lal />
+      <input
+        type="text"
+        class="form-control"
+        id="inputlatitude"
+        value="{{ city.latitude }}"
+        #lal
+      />
     </div>
     <div class="col-md-6">
       <label for="inputAddress" class="form-label">Nom :</label>
-      <input type="text" class="form-control" id="inputAddress" value={{city.name}} #name />
+      <input
+        type="text"
+        class="form-control"
+        id="inputAddress"
+        value="{{ city.name }}"
+        #name
+      />
     </div>
     <div class="col-md-6">
       <label for="inputAddress2" class="form-label">Abbreviation :</label>
-      <input type="text" class="form-control" id="inputAddress2" value={{city.abbreviation}} #abv />
+      <input
+        type="text"
+        class="form-control"
+        id="inputAddress2"
+        value="{{ city.abbreviation }}"
+        #abv
+      />
     </div>
     <div class="col-md-6">
       <label for="inputCity" class="form-label">Prix :</label>
-      <input type="text" class="form-control" id="inputCity" value={{city.price}} #prix />
+      <input
+        type="text"
+        class="form-control"
+        id="inputCity"
+        value="{{ city.price }}"
+        #prix
+      />
     </div>
     <div class="col-md-6">
       <label for="inputState" class="form-label">Image URL :</label>
-      <input type="text" class="form-control" id="inputState" value={{city.image}} #image />
+      <input
+        type="text"
+        class="form-control"
+        id="inputState"
+        value="{{ city.image }}"
+        #image
+      />
     </div>
     <div class="col-12">
       <div class="form-floating">
@@ -32,7 +68,7 @@
           placeholder="Leave a comment here"
           id="floatingTextarea2"
           style="height: 100px"
-          value={{city.description}} 
+          value="{{ city.description }}"
           #text
         ></textarea>
         <label for="floatingTextarea2">Description</label>
@@ -43,7 +79,7 @@
         type="button"
         class="btn btn-dark"
         (click)="
-        Modifier(
+          Modifier(
             name.value,
             abv.value,
             text.value,
@@ -53,7 +89,6 @@
             lal.value
           )
         "
-        
       >
         UPDATE
       </button>

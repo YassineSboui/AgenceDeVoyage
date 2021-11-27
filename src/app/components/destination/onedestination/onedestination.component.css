@@ -1,6 +1,12 @@
-.medium{
-    width: 80vw;
+.medium {
+  width: 80vw;
 }
-.background{
-    background-color: rgba(0, 0, 0, 0.1);
+.background {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 15px;
+  padding-top: 3vh;
+}
+img {
+  height: 44vh;
+  border-radius: 10px;
 }

@@ -6,10 +6,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-ajoutdestination',
   templateUrl: './ajoutdestination.component.html',
-  styleUrls: ['./ajoutdestination.component.css']
+  styleUrls: ['./ajoutdestination.component.css'],
 })
 export class AjoutdestinationComponent implements OnInit {
-
   dentination: Dentination = new Dentination('', '', '', '', 0, 0, 0);
 
   ajoutDestination(
@@ -43,8 +42,9 @@ export class AjoutdestinationComponent implements OnInit {
       );
       this.DentinationService.createDentination(this.dentination).subscribe(
         (response) => {
-          this.SuccessSnackBar('Your Destination has been successfully created');
-          
+          this.SuccessSnackBar(
+            'Your Destination has been successfully created'
+          );
         },
         (error) => {
           this.ErrorSnackBar(' Creation Error ');
@@ -64,8 +64,5 @@ export class AjoutdestinationComponent implements OnInit {
     this._snackBar.open(message, 'ERROR', { duration: 3000 });
   }
 
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

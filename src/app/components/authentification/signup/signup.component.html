@@ -35,13 +35,24 @@
   <br />
   <div class="d-flex justify-content-center">
     <input
-      type="password"
+      [type]="hide ? 'password' : 'text'"
       class="form-control"
       id="FormControlInput2"
       placeholder="Password"
       #MDP
     />
+    <mat-icon
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+      class="hide"
+      >{{ hide ? "visibility_off" : "visibility" }}</mat-icon
+    >
   </div>
+  <mdb-badge color="indigo"
+    >Password must be at least 8 characters long with <br />
+    1 uppercase 1 lowercase & 1 numeric character</mdb-badge
+  >
   <br />
   <div class="d-flex justify-content-center">
     <input

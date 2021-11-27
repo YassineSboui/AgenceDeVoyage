@@ -6,7 +6,7 @@ import { DentinationService } from 'src/app/services/dentination.service';
 @Component({
   selector: 'app-hotels',
   templateUrl: './hotels.component.html',
-  styleUrls: ['./hotels.component.css']
+  styleUrls: ['./hotels.component.css'],
 })
 export class HotelsComponent implements OnInit {
   identifiant: any;
@@ -14,9 +14,8 @@ export class HotelsComponent implements OnInit {
   destinationSelect() {
     this.DentinationService.getOneDentination(this.identifiant).subscribe(
       (response) => {
-        this.destination=response;
-        return this.destination ;
-
+        this.destination = response;
+        return this.destination;
       },
       (error) => {
         console.log(error);
@@ -24,11 +23,13 @@ export class HotelsComponent implements OnInit {
     );
   }
 
-  constructor(private activatedRoute:ActivatedRoute,private DentinationService: DentinationService,) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private DentinationService: DentinationService
+  ) {}
 
   ngOnInit(): void {
     this.identifiant = this.activatedRoute.snapshot.params['id'];
     this.destinationSelect();
   }
-
 }

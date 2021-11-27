@@ -33,7 +33,7 @@ export class MapComponent implements AfterViewInit {
   private initMap(): void {
     this.map = L.map('map', {
       center: [39.8282, -98.5795],
-      zoom: 3,
+      zoom: 4,
     });
     this.map.setView([39.8282, -98.5795]);
     this.map.setMaxBounds(bounds);
@@ -42,7 +42,7 @@ export class MapComponent implements AfterViewInit {
       'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       {
         maxZoom: 5,
-        minZoom: 2,
+        minZoom: 3,
       }
     );
 

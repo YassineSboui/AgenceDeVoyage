@@ -18,12 +18,19 @@
   <br />
   <div class="d-flex justify-content-center">
     <input
-      type="password"
+      [type]="hide ? 'password' : 'text'"
       class="form-control"
       id="FormControlInput2"
       placeholder="Password"
       #MDP
     />
+    <mat-icon
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+      class="hide"
+      >{{ hide ? "visibility_off" : "visibility" }}</mat-icon
+    >
   </div>
   <br />
   <button

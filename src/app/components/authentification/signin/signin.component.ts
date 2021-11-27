@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from 'src/app/models/user';
@@ -12,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class SigninComponent implements OnInit {
   user: User = new User();
+  hide = true;
 
   verifmdp(mdp: string) {
     return (

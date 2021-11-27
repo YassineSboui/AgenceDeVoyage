@@ -13,6 +13,7 @@ export class SignupComponent implements OnInit {
   Client: string = '617af3608b6a8a1648fd396c';
   Admin: string = '617af3528b6a8a1648fd396a';
   user: User = new User();
+  hide = true;
   verifmdp(mdp: string) {
     return (
       mdp.match(/[0-9]/g) &&

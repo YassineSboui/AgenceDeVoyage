@@ -2,14 +2,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-caroussel',
   templateUrl: './caroussel.component.html',
-  styleUrls: ['./caroussel.component.css']
+  styleUrls: ['./caroussel.component.css'],
 })
 export class CarousselComponent implements OnInit {
- 
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

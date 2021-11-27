@@ -80,27 +80,46 @@
     <div class="modal-content">
       >
       <div class="modal-body">
-        <app-updatedestination [city]="destination" ></app-updatedestination>
+        <app-updatedestination [city]="destination"></app-updatedestination>
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+<div
+  class="modal fade"
+  id="exampleModal3"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel3"
+  aria-hidden="true"
+>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">DELETE</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body">
         ARE YOU SURE YOU WANT TO DELETE THIS DESTINATION ?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" (click)="destinationDelete(city.value)" data-bs-dismiss="modal">Confirm</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="destinationDelete(city.value)"
+          data-bs-dismiss="modal"
+        >
+          Confirm
+        </button>
       </div>
     </div>
   </div>
 </div>
-

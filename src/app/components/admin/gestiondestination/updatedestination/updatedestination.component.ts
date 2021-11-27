@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-updatedestination',
   templateUrl: './updatedestination.component.html',
-  styleUrls: ['./updatedestination.component.css']
+  styleUrls: ['./updatedestination.component.css'],
 })
 export class UpdatedestinationComponent implements OnInit {
   @Input() city: Dentination;
@@ -41,10 +41,12 @@ export class UpdatedestinationComponent implements OnInit {
         Number(long),
         Number(lal)
       );
-      this.DentinationService.updateDentination(this.city.name,this.dentination).subscribe(
+      this.DentinationService.updateDentination(
+        this.city.name,
+        this.dentination
+      ).subscribe(
         (response) => {
           this.SuccessSnackBar('Destination changed successfully');
-          
         },
         (error) => {
           this.ErrorSnackBar('Error Modification');
@@ -64,9 +66,5 @@ export class UpdatedestinationComponent implements OnInit {
     this._snackBar.open(message, 'ERROR', { duration: 3000 });
   }
 
-
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

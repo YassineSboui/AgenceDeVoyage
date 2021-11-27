@@ -23,7 +23,7 @@ export class ContactComponent implements OnInit {
           this.SuccessSnackBar('E-mail sended');
         },
         (error) => {
-          this.ErrorSnackBar("Fail to send");
+          this.ErrorSnackBar('Fail to send');
         }
       );
     }
