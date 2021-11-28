@@ -13,7 +13,7 @@ import { HotelsService } from 'src/app/services/hotels.service';
 export class HotelsComponent implements OnInit {
   identifiant: any;
   destination: Dentination;
-  hotels: Hotel[];
+  hotels: Hotel[] = [];
   destinationSelect() {
     this.DentinationService.getOneDentination(this.identifiant).subscribe(
       (response) => {
@@ -39,6 +39,11 @@ export class HotelsComponent implements OnInit {
       }
     );
   }
+  getcityhotels() {
+    return this.hotels.filter(
+      (element) => String(element.city) == this.identifiant
+    );
+  }
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -50,5 +55,6 @@ export class HotelsComponent implements OnInit {
     this.identifiant = this.activatedRoute.snapshot.params['id'];
     this.destinationSelect();
     this.getAllhotels();
+    this.getcityhotels();
   }
 }

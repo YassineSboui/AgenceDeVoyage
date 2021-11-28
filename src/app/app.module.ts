@@ -35,6 +35,7 @@ import { HotelsComponent } from './components/hotels/hotels.component';
 import { HotelComponent } from './components/hotels/hotel/hotel.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatSnackBarModule,
     MDBBootstrapModule.forRoot(),
     MatFormFieldModule,
-    MatIconModule
+    MatIconModule,
+    MatGridListModule
   ],
   providers: [GuardService],
   bootstrap: [AppComponent],

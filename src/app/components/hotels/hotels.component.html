@@ -14,7 +14,7 @@
     >
       <div class="view view-cascade overlay waves-light" mdbWavesEffect>
         <div class="d-flex justify-content-center">
-          <img src="{{ destination.image }}" />
+          <img src="{{ destination.image }}" alt="city" />
         </div>
         <a>
           <div class="mask rgba-white-slight"></div>
@@ -38,9 +38,14 @@
       <h2 class="font-weight-bold h1 py-5">
         <strong>Our Best Hotels</strong>
       </h2>
-      <div *ngFor="let hotel of hotels; index as i">
-        <app-hotel [hotel]="hotel" [nb]="i"></app-hotel>
-      </div>
+      <mat-grid-list cols="2" rowHeight="1:1">
+        <mat-grid-tile
+          *ngFor="let hotel of getcityhotels(); index as i"
+          class="cards"
+        >
+          <app-hotel [hotel]="hotel" [nb]="i"></app-hotel>
+        </mat-grid-tile>
+      </mat-grid-list>
     </section>
   </div>
 </div>

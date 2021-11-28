@@ -10,7 +10,7 @@ p {
   text-align: center;
 }
 .same {
-  height: 45vh;
+  height: 320px;
   background-color: rgba(255, 255, 255, 0.65);
   border-radius: 45px;
 }

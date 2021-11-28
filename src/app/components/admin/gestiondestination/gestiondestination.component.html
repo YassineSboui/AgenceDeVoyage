@@ -39,8 +39,10 @@
       <button
         type="button"
         class="btn btn-danger"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal3"
+        data-toggle="modal"
+        data-target="#basicExample"
+        (click)="frame.show()"
+        mdbWavesEffect
       >
         Delete
       </button>
@@ -87,39 +89,57 @@
 </div>
 
 <div
-  class="modal fade"
-  id="exampleModal3"
+  mdbModal
+  #frame="mdbModal"
+  class="modal fade top"
+  id="frameModalTop"
   tabindex="-1"
-  aria-labelledby="exampleModalLabel3"
+  role="dialog"
+  aria-labelledby="myModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">DELETE</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+  <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">Are you sure?</p>
       </div>
+
+      <!--Body-->
       <div class="modal-body">
-        ARE YOU SURE YOU WANT TO DELETE THIS DESTINATION ?
+        <mdb-icon
+          fas
+          icon="times"
+          size="4x"
+          class="animated rotateIn"
+        ></mdb-icon>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-        <button
-          type="button"
-          class="btn btn-primary"
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <a
+          href="https://mdbootstrap.com/docs/b5/angular/pro/"
+          mdbBtn
+          color="danger"
+          [outline]="true"
+          class="waves-effect"
+          mdbWavesEffect
           (click)="destinationDelete(city.value)"
-          data-bs-dismiss="modal"
+          >Yes</a
         >
-          Confirm
-        </button>
+        <a
+          type="button"
+          mdbBtn
+          color="danger"
+          class="waves-effect"
+          mdbWavesEffect
+          data-dismiss="modal"
+          (click)="frame.hide()"
+          >No</a
+        >
       </div>
     </div>
+    <!--/.Content-->
   </div>
 </div>
