@@ -8,7 +8,6 @@ import { Hotel } from 'src/app/models/hotel';
 })
 export class HotelComponent implements OnInit {
   @Input() hotel: Hotel;
-  @Input() nb: number;
   constructor() { }
 
   ngOnInit(): void {

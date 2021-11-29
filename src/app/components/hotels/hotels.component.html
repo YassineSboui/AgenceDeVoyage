@@ -39,11 +39,8 @@
         <strong>Our Best Hotels</strong>
       </h2>
       <mat-grid-list cols="2" rowHeight="1:1">
-        <mat-grid-tile
-          *ngFor="let hotel of getcityhotels(); index as i"
-          class="cards"
-        >
-          <app-hotel [hotel]="hotel" [nb]="i"></app-hotel>
+        <mat-grid-tile *ngFor="let hotel of getcityhotels()" class="cards">
+          <app-hotel [hotel]="hotel"></app-hotel>
         </mat-grid-tile>
       </mat-grid-list>
     </section>

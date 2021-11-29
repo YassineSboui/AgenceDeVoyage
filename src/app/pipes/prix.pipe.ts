@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class PrixPipe implements PipeTransform {
 
   transform(value: number): string {
-    return value+" $ ";
+    return value+" TND ";
   }
 
 }
