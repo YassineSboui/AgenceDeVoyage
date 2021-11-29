@@ -1,12 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'prix'
+  name: 'prix',
 })
 export class PrixPipe implements PipeTransform {
-
   transform(value: number): string {
-    return value+" TND ";
+    return value + ' TND ';
   }
-
 }

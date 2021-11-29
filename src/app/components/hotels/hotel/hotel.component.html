@@ -1,36 +1,72 @@
-<div class="row d-flex justify-content-center">
-  <div class="col-lg-10 col-xl-10 mb-10">
-    <div class="view overlay rounded z-depth-2 waves-light" mdbWavesEffect>
-      <img
-        src="{{ hotel.image }}"
-        class="img-fluid"
-        alt="Sample project image"
-      />
-      <a>
-        <div class="mask rgba-white-slight"></div>
-      </a>
-    </div>
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <div class="view overlay rounded waves-light" mdbWavesEffect>
+        <img
+          src="{{ hotel.image }}"
+          class="img-fluid"
+          alt="Sample project image"
+        />
+        <span class="ribbon6" *ngIf="hotel.enpromo"
+          >Promo : {{ hotel.promotion }} %</span
+        >
 
-    <mdb-card-body>
-      <a href="" class="green-text">
-        <h5 class="font-weight-bold mt-2 mb-3">
-          <mdb-icon fas icon="chart-line"></mdb-icon> {{ hotel.name }}
-        </h5>
-      </a>
-      <h4 class="font-weight-bold mt-2 mb-3">{{ hotel.name }}</h4>
-      <p>
-        {{ hotel.description }}
-      </p>
-      <a
-        mdbBtn
-        color="success"
-        size="md"
-        [rounded]="true"
-        class="waves-light"
-        mdbWavesEffect
-      >
-        Check Rooms</a
-      >
-    </mdb-card-body>
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+        <h2 class="font-weight-bold mt-2 mb-3">{{ hotel.name }}</h2>
+        <h1>
+          <strong> Price : </strong>
+          <span
+            class="badge badge-secondary"
+            [ngClass]="{ supp: hotel.enpromo }"
+            >{{ hotel.nightprice }} DTN</span
+          ><br /><span *ngIf="hotel.enpromo" class="badge badge-success"
+            >{{ getpromoprice(hotel.nightprice, hotel.promotion) }} DTN</span
+          >
+        </h1>
+      </div>
+    </div>
+    <div class="flip-card-back">
+      <mdb-card-body>
+        <a href="" class="green-text">
+          <h5 class="font-weight-bold mt-2 mb-3">
+            <mdb-icon fas icon="chart-line"></mdb-icon> {{ hotel.name }}
+          </h5>
+        </a>
+        <h4 class="font-weight-bold mt-2 mb-3">{{ hotel.name }}</h4>
+        <p>
+          {{ hotel.description }}
+        </p>
+        <a
+          mdbBtn
+          color="success"
+          size="md"
+          [rounded]="true"
+          class="waves-light"
+          mdbWavesEffect
+          (click)="frame.show()"
+        >
+          Check Rooms</a
+        >
+      </mdb-card-body>
+    </div>
+  </div>
+</div>
+
+<div
+  mdbModal
+  #frame="mdbModal"
+  class="modal fade top"
+  id="frameModalTop"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal1">
+      <app-reservation [hotel]='hotel'></app-reservation>
+    </div>
   </div>
 </div>

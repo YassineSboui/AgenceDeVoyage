@@ -36,6 +36,7 @@ import { HotelComponent } from './components/hotels/hotel/hotel.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { ReservationComponent } from './components/reservation/reservation.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     AjoutdestinationComponent,
     UpdatedestinationComponent,
     HotelsComponent,
-    HotelComponent
+    HotelComponent,
+    ReservationComponent
   ],
   imports: [
     BrowserModule,
