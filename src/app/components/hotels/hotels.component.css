@@ -21,3 +21,13 @@ h2 {
 .p {
   font-family: "Trocchi", serif;
 }
+form {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 50vw;
+  margin-left: 25vw;
+  border-radius: 15px;
+}
+label {
+  font-weight: bold;
+  font-style: italic;
+}

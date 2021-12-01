@@ -75,25 +75,29 @@
             <mdb-icon fas icon="user"></mdb-icon> {{ user | uppercase
             }}<span class="caret"></span
           ></a>
-          <div
+          <ul
             *dropdownMenu
             class="dropdown-menu dropdown-menu-right dropdown dropdown-primary"
             role="menu"
           >
-            <a
-              *ngIf="user != null && admin == true"
-              class="dropdown-item waves-light"
-              mdbWavesEffect
-              routerLink="/admin"
-              >Admin Area</a
-            >
-            <a
-              class="dropdown-item waves-light"
-              mdbWavesEffect
-              (click)="deconnecter()"
-              >Log out</a
-            >
-          </div>
+            <li>
+              <a
+                *ngIf="user != null && admin == true"
+                class="dropdown-item waves-light"
+                mdbWavesEffect
+                routerLink="/admin"
+                >Admin Area</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item waves-light"
+                mdbWavesEffect
+                (click)="deconnecter()"
+                >Log out</a
+              >
+            </li>
+          </ul>
         </li>
       </ul>
     </links>

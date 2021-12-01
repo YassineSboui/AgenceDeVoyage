@@ -13,7 +13,9 @@ import { HotelsService } from 'src/app/services/hotels.service';
 export class HotelsComponent implements OnInit {
   identifiant: any;
   destination: Dentination;
+  count: number;
   hotels: Hotel[] = [];
+  cityhotels: Hotel[] = [];
   destinationSelect() {
     this.DentinationService.getOneDentination(this.identifiant).subscribe(
       (response) => {
@@ -32,17 +34,47 @@ export class HotelsComponent implements OnInit {
         this.hotels.forEach((element) => {
           element.enpromo = element.promotion != 0;
         });
-        return this.hotels;
+        this.cityhotels = this.hotels.filter(
+          (element) => element.city == this.identifiant
+        );
+        this.count = this.cityhotels.length;
+        return this.cityhotels;
       },
       (error) => {
         console.log(error);
       }
     );
   }
-  getcityhotels() {
-    return this.hotels.filter(
-      (element) => String(element.city) == this.identifiant
+  getHotelByName(name: string) {
+    this.cityhotels = this.hotels.filter(
+      (element) => element.city == this.identifiant
     );
+    if (name != '') {
+      this.cityhotels = this.cityhotels.filter((element) =>
+        element.name.toLowerCase().includes(name.toLowerCase())
+      );
+    }
+    this.count = this.cityhotels.length;
+  }
+  getDiscountHotels() {
+    this.cityhotels = this.hotels.filter(
+      (element) => element.city == this.identifiant
+    );
+
+    this.cityhotels = this.cityhotels.filter(
+      (element) => element.enpromo == true
+    );
+    this.count = this.cityhotels.length;
+  }
+  getNoDiscountHotels() {
+    this.cityhotels = this.hotels.filter(
+      (element) => element.city == this.identifiant
+    );
+
+    this.cityhotels = this.cityhotels.filter(
+      (element) => element.enpromo == false
+    );
+    this.count = this.cityhotels.length;
   }
 
   constructor(
@@ -55,6 +87,5 @@ export class HotelsComponent implements OnInit {
     this.identifiant = this.activatedRoute.snapshot.params['id'];
     this.destinationSelect();
     this.getAllhotels();
-    this.getcityhotels();
   }
 }

@@ -38,11 +38,91 @@
       <h1 class="font-weight-bold h1 py-5">
         <strong>Our Best Hotels</strong>
       </h1>
-      <mat-grid-list cols="2" rowHeight="1:1">
-        <mat-grid-tile *ngFor="let hotel of getcityhotels()" class="cards">
+      <form class="form-inline md-form mr-auto mb-4">
+        <input
+          class="form-control mr-sm-2"
+          type="text"
+          placeholder="Search"
+          aria-label="Search"
+          #name
+          style="margin-left: 4vw"
+        />
+        <button
+          type="button"
+          mdbBtn
+          size="sm"
+          gradient="blue"
+          [rounded]="true"
+          class="my-0 waves-light"
+          mdbWavesEffect
+          (click)="getHotelByName(name.value)"
+        >
+          Search
+        </button>
+        <!-- Material unchecked -->
+        <div class="form-check form-check-inline" style="margin-left: 1vw">
+          <label
+            class="form-check-label"
+            for="materialInline1"
+            style="margin-top: 2vh; color: azure"
+          >
+            On discount</label
+          >
+          <input
+            type="radio"
+            class="form-check-input"
+            id="materialInline1"
+            name="inlineMaterialRadiosExample"
+            mdbInput
+            style="margin-left: 5vw"
+            (click)="getDiscountHotels()"
+          />
+        </div>
+        <div class="form-check form-check-inline" style="margin-left: 1vw">
+          <label
+            class="form-check-label"
+            for="materialInline1"
+            style="margin-top: 2vh; color: azure"
+          >
+            No discount</label
+          >
+          <input
+            type="radio"
+            class="form-check-input"
+            id="materialInline1"
+            name="inlineMaterialRadiosExample"
+            mdbInput
+            style="margin-left: 5vw"
+            (click)="getNoDiscountHotels()"
+          />
+        </div>
+        <div class="form-check form-check-inline" style="margin-left: 1vw">
+          <label
+            class="form-check-label"
+            for="materialInline1"
+            style="margin-top: 2vh; color: azure"
+          >
+            All hotles</label
+          >
+          <input
+            type="radio"
+            class="form-check-input"
+            id="materialInline1"
+            name="inlineMaterialRadiosExample"
+            mdbInput
+            style="margin-left: 5vw"
+            (click)="getAllhotels()"
+          />
+        </div>
+      </form>
+      <mat-grid-list cols="2" rowHeight="1:1" *ngIf="count != 0">
+        <mat-grid-tile *ngFor="let hotel of cityhotels" class="cards">
           <app-hotel [hotel]="hotel"></app-hotel>
         </mat-grid-tile>
       </mat-grid-list>
+      <div *ngIf="count == 0" class="container">
+        <img src="assets/NoResultFound.png" alt="NoResultFound" />
+      </div>
     </section>
   </div>
 </div>
