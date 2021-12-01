@@ -14,6 +14,18 @@ export class HotelComponent implements OnInit {
       price * ((100 - promo) / 100) - ((price * ((100 - promo) / 100)) % 1)
     );
   }
+  table(int: number) {
+    var nb = int - (int % 1);
+    var table: number[];
+    table = Array(nb).fill(4);
+    return table;
+  }
+  table1(int: number) {
+    var nb = int - (int % 1);
+    var table: number[];
+    table = Array(5-nb).fill(4);
+    return table;
+  }
   constructor() {}
 
   ngOnInit(): void {}

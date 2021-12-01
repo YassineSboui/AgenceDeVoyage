@@ -14,34 +14,67 @@
         <a>
           <div class="mask rgba-white-slight"></div>
         </a>
+
         <h2 class="font-weight-bold mt-2 mb-3">{{ hotel.name }}</h2>
         <h1>
-          <strong> Price : </strong>
-          <span
-            class="badge badge-secondary"
-            [ngClass]="{ supp: hotel.enpromo }"
-            >{{ hotel.nightprice }} DTN</span
-          ><br /><span *ngIf="hotel.enpromo" class="badge badge-success"
-            >{{ getpromoprice(hotel.nightprice, hotel.promotion) }} DTN</span
+          <button
+            mdbBtn
+            type="button"
+            gradient="peach"
+            size="lg"
+            mdbWavesEffect
+            style="font-size: medium"
           >
+            <strong> Price : </strong>
+            <span
+              class="badge badge-secondary"
+              [ngClass]="{ supp: hotel.enpromo }"
+              >{{ hotel.nightprice }} DTN</span
+            ></button
+          ><span *ngIf="hotel.enpromo" class="card-price"
+            >{{ getpromoprice(hotel.nightprice, hotel.promotion) }} DTN</span
+          ><br /><br />
+          <span *ngFor="let i of table(hotel.rating)">
+            <i class="fas fa-star" style="color: yellow"></i>
+          </span>
+          <span *ngFor="let i of table1(hotel.rating)">
+            <i class="far fa-star" style="color: yellow"></i>
+          </span>
         </h1>
       </div>
     </div>
     <div class="flip-card-back">
       <mdb-card-body>
-        <a href="" class="green-text">
-          <h5 class="font-weight-bold mt-2 mb-3">
-            <mdb-icon fas icon="chart-line"></mdb-icon> {{ hotel.name }}
-          </h5>
-        </a>
-        <h4 class="font-weight-bold mt-2 mb-3">{{ hotel.name }}</h4>
+        <h1 class="font-weight-bold mt-2 mb-3" style="font-size: xx-large">
+          {{ hotel.name }}
+        </h1>
         <p>
           {{ hotel.description }}
         </p>
+        <button
+          mdbBtn
+          type="button"
+          gradient="peach"
+          [block]="true"
+          size="lg"
+          mdbWavesEffect
+        >
+          <span style="font-size: xx-large">{{ hotel.rating }}</span> / 5
+        </button>
+        <br />
+        <br />
+        <span *ngFor="let i of table(hotel.rating)">
+          <i class="fas fa-star" style="color: yellow; zoom: 3"></i>
+        </span>
+        <span *ngFor="let i of table1(hotel.rating)">
+          <i class="far fa-star" style="color: yellow; zoom: 3"></i>
+        </span>
+        <br />
+        <br />
         <a
           mdbBtn
           color="success"
-          size="md"
+          size="lg"
           [rounded]="true"
           class="waves-light"
           mdbWavesEffect
@@ -66,7 +99,7 @@
 >
   <div class="modal-dialog" role="document">
     <div class="modal-content modal1">
-      <app-reservation [hotel]='hotel'></app-reservation>
+      <app-reservation [hotel]="hotel"></app-reservation>
     </div>
   </div>
 </div>

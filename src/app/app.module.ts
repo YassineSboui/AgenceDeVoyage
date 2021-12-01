@@ -33,11 +33,12 @@ import { AjoutdestinationComponent } from './components/admin/gestiondestination
 import { UpdatedestinationComponent } from './components/admin/gestiondestination/updatedestination/updatedestination.component';
 import { HotelsComponent } from './components/hotels/hotels.component';
 import { HotelComponent } from './components/hotels/hotel/hotel.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatIconModule} from '@angular/material/icon';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { ReservationComponent } from './components/reservation/reservation.component';
-
+import { NgxStarRatingModule } from 'ngx-star-rating';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +67,7 @@ import { ReservationComponent } from './components/reservation/reservation.compo
     UpdatedestinationComponent,
     HotelsComponent,
     HotelComponent,
-    ReservationComponent
+    ReservationComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +78,8 @@ import { ReservationComponent } from './components/reservation/reservation.compo
     MDBBootstrapModule.forRoot(),
     MatFormFieldModule,
     MatIconModule,
-    MatGridListModule
+    MatGridListModule,
+    NgxStarRatingModule,
   ],
   providers: [GuardService],
   bootstrap: [AppComponent],

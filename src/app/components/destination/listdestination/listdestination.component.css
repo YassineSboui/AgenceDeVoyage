@@ -2,20 +2,27 @@
   margin-right: 12px;
 }
 h1 {
-  color: #c4e7ff;
+  color: #003cff;
   font-family: "Trocchi", serif;
   font-size: 45px;
   font-weight: normal;
   line-height: 48px;
   margin: 0;
   margin-left: -6vw;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9,
+    0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
+    0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
+    0 20px 20px rgba(0, 0, 0, 0.15);
 }
 h4 {
-  color: #c4e7ff;
+  color: #003cff;
   font-family: "Trocchi", serif;
   font-size: 25px;
   font-weight: normal;
   line-height: 48px;
   margin: 0;
   padding-left: 1vw;
+  font-weight: bold;
+  font-style: italic;
 }
