@@ -117,7 +117,7 @@
       </form>
       <mat-grid-list cols="2" rowHeight="1:1" *ngIf="count != 0">
         <mat-grid-tile *ngFor="let hotel of cityhotels" class="cards">
-          <app-hotel [hotel]="hotel"></app-hotel>
+          <app-hotel [hotel]="hotel" [destination]="destination"></app-hotel>
         </mat-grid-tile>
       </mat-grid-list>
       <div *ngIf="count == 0" class="container">

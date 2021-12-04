@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Dentination } from 'src/app/models/dentination';
 import { Hotel } from 'src/app/models/hotel';
 
 @Component({
@@ -8,6 +9,7 @@ import { Hotel } from 'src/app/models/hotel';
 })
 export class HotelComponent implements OnInit {
   @Input() hotel: Hotel;
+  @Input() destination: Dentination;
 
   getpromoprice(price: number, promo: number) {
     return (
@@ -23,7 +25,7 @@ export class HotelComponent implements OnInit {
   table1(int: number) {
     var nb = int - (int % 1);
     var table: number[];
-    table = Array(5-nb).fill(4);
+    table = Array(5 - nb).fill(4);
     return table;
   }
   constructor() {}

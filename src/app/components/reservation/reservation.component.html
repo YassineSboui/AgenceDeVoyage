@@ -1,9 +1,12 @@
 <div id="booking" class="section">
   <div class="section-center">
     <div class="container">
-      <div class="row">
-        <div class="booking-form" style="background-image: url({{hotel.image}});
-            background-size: cover;">
+      <div class="row" *ngIf="!confiramtion">
+        <div
+          class="booking-form"
+          style="background-image: url({{ hotel.image }});
+            background-size: cover;"
+        >
           <div class="form-header">
             <h1>Make your reservation</h1>
           </div>
@@ -12,32 +15,41 @@
               <input
                 class="form-control"
                 type="text"
-                placeholder="Country, ZIP, city..."
+                placeholder="ZIP, city..."
+                #city
               />
               <span class="form-label">Destination</span>
             </div>
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <input class="form-control" type="date" required />
+                  <input class="form-control" type="date" required #checkin />
                   <span class="form-label">Check In</span>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <input class="form-control" type="date" required />
-                  <span class="form-label">Check out</span>
+                  <input
+                    class="form-control"
+                    type="number"
+                    min="1"
+                    max="60"
+                    placeholder="Days"
+                    required
+                    #days
+                  />
+                  <span class="form-label">Days</span>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-4">
                 <div class="form-group">
-                  <select class="form-control" required>
+                  <select class="form-control" required #rooms>
                     <option value="" selected hidden>Rooms</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
+                    <option [value]="1">1</option>
+                    <option [value]="2">2</option>
+                    <option [value]="3">3</option>
                   </select>
                   <span class="select-arrow"></span>
                   <span class="form-label">Rooms</span>
@@ -45,11 +57,11 @@
               </div>
               <div class="col-md-4">
                 <div class="form-group">
-                  <select class="form-control" required>
+                  <select class="form-control" required #adults>
                     <option value="" selected hidden>Adults</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
+                    <option [value]="1">1</option>
+                    <option [value]="2">2</option>
+                    <option [value]="3">3</option>
                   </select>
                   <span class="select-arrow"></span>
                   <span class="form-label">Adults</span>
@@ -57,11 +69,11 @@
               </div>
               <div class="col-md-4">
                 <div class="form-group">
-                  <select class="form-control" required>
+                  <select class="form-control" required #children>
                     <option value="" selected hidden>Children</option>
-                    <option>0</option>
-                    <option>1</option>
-                    <option>2</option>
+                    <option [value]="0">0</option>
+                    <option [value]="1">1</option>
+                    <option [value]="2">2</option>
                   </select>
                   <span class="select-arrow"></span>
                   <span class="form-label">Children</span>
@@ -75,6 +87,7 @@
                     class="form-control"
                     type="email"
                     placeholder="Enter your Email"
+                    #email
                   />
                   <span class="form-label">Email</span>
                 </div>
@@ -83,18 +96,110 @@
                 <div class="form-group">
                   <input
                     class="form-control"
-                    type="tel"
+                    type="number"
                     placeholder="Enter you Phone"
+                    #phone
                   />
                   <span class="form-label">Phone</span>
                 </div>
               </div>
             </div>
             <div class="form-btn">
-              <button class="submit-btn">Book Now</button>
+              <button class="submit-btn" (click)="CreateReservation(city.value,checkin.value,days.value,rooms.value,adults.value,children.value,email.value,phone.value)">Book Now</button>
             </div>
           </form>
         </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="confiramtion" style="background-color: aliceblue">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Your cart</h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Product name</th>
+              <th>Price</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Product 1</td>
+              <td>100$</td>
+              <td>
+                <a>
+                  <mdb-icon fas icon="times"></mdb-icon>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Product 2</td>
+              <td>100$</td>
+              <td>
+                <a>
+                  <mdb-icon fas icon="times"></mdb-icon>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Product 3</td>
+              <td>100$</td>
+              <td>
+                <a>
+                  <mdb-icon fas icon="times"></mdb-icon>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Product 4</td>
+              <td>100$</td>
+              <td>
+                <a>
+                  <mdb-icon fas icon="times"></mdb-icon>
+                </a>
+              </td>
+            </tr>
+            <tr class="total">
+              <th scope="row">5</th>
+              <td>Total</td>
+              <td>400$</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!--Footer-->
+      <div class="modal-footer">
+        <button
+          type="button"
+          mdbBtn
+          color="primary"
+          [outline]="true"
+          class="waves-light"
+          mdbWavesEffect
+          data-dismiss="modal"
+        >
+          Close
+        </button>
+        <button mdbBtn color="primary" class="waves-light" mdbWavesEffect>
+          Checkout
+        </button>
       </div>
     </div>
   </div>
