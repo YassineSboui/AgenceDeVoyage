@@ -39,6 +39,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AjouthotelComponent } from './components/admin/gestiondestination/ajouthotel/ajouthotel.component';
+import { UpdatehotelComponent } from './components/admin/gestiondestination/updatehotel/updatehotel.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +70,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HotelsComponent,
     HotelComponent,
     ReservationComponent,
+    AjouthotelComponent,
+    UpdatehotelComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,6 +84,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatGridListModule,
     NgxStarRatingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [GuardService],
   bootstrap: [AppComponent],

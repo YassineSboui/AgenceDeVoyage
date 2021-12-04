@@ -1,0 +1,75 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Hotel } from 'src/app/models/hotel';
+import { HotelsService } from 'src/app/services/hotels.service';
+
+@Component({
+  selector: 'app-ajouthotel',
+  templateUrl: './ajouthotel.component.html',
+  styleUrls: ['./ajouthotel.component.css'],
+})
+export class AjouthotelComponent implements OnInit {
+  cityhotels: Hotel;
+  enpromo: boolean = false;
+  @Input() city: string;
+
+  ajoutHotel(
+    name: string,
+    description: string,
+    image: string,
+    rating: string,
+    nightprice: string,
+    promotion: string,
+    enpromo: boolean
+  ) {
+    if (
+      name == '' ||
+      description == '' ||
+      image == '' ||
+      rating == '' ||
+      nightprice == ''
+    ) {
+      this.ErrorSnackBar('Please fill in all the fields');
+    } else {
+      if (Boolean(enpromo) == false) {
+        promotion = String(0);
+      }
+      if (Number(rating) < 0 && Number(rating) > 5) {
+        this.ErrorSnackBar('Please choose A rating between 0 and 5');
+      } else {
+        this.cityhotels = new Hotel(
+          name,
+          description,
+          image,
+          Number(rating),
+          Number(nightprice),
+          Number(promotion),
+          this.city,
+          Boolean(enpromo)
+        );
+        this.hotelsService.createHotel(this.cityhotels).subscribe(
+          (response) => {
+            this.SuccessSnackBar('Your Hotel has been successfully created');
+          },
+          (error) => {
+            this.ErrorSnackBar(' Creation Error ');
+          }
+        );
+      }
+    }
+  }
+
+  constructor(
+    private hotelsService: HotelsService,
+    private _snackBar: MatSnackBar
+  ) {}
+
+  SuccessSnackBar(message: string) {
+    this._snackBar.open(message, 'SUCCEEDED', { duration: 3000 });
+  }
+  ErrorSnackBar(message: string) {
+    this._snackBar.open(message, 'ERROR', { duration: 3000 });
+  }
+
+  ngOnInit(): void {}
+}

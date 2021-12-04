@@ -19,10 +19,11 @@
       placeholder="Choose your option"
       aria-label="Default select example"
       #city
+      (click)="getcity(city.value)"
     >
       <option selected value="none">Chose The City</option>
       <option *ngFor="let des of destinations" [value]="des.name">
-        {{ des.abbreviation }}
+        {{ des.name }}
       </option>
     </select>
     <br />
@@ -34,7 +35,7 @@
         data-bs-target="#exampleModal2"
         (click)="destinationSelect(city.value)"
       >
-        Update
+        Update Destination
       </button>
       <button
         type="button"
@@ -44,8 +45,55 @@
         (click)="frame.show()"
         mdbWavesEffect
       >
-        Delete
+        Delete Destination
       </button>
+      <br />
+      <hr class="my-5" />
+      <button
+        style="margin-top: 2vh"
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal3"
+      >
+        ADD HOTELS
+      </button>
+      <br />
+      UPDATE OR DELETE HOTEL :
+      <br />
+      <select
+        class="form-select"
+        placeholder="Choose your option"
+        aria-label="Default select example"
+        #hotel
+      >
+        <option selected value="none">Chose The Hotel</option>
+        <option *ngFor="let des of cityhotels" [value]="des.name">
+          {{ des.name }}
+        </option>
+      </select>
+      <div *ngIf="hotel.value != 'none'" style="margin-top: 5vh">
+        <button
+          type="button"
+          class="btn btn-warning"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal5"
+          (click)="hotelSelect(hotel.value)"
+        >
+          Update Hotels
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-toggle="modal"
+          data-target="#basicExample"
+          (click)="frame1.show() "
+          (click)="hotelSelect(hotel.value) "
+          mdbWavesEffect
+        >
+          Delete Hotels
+        </button>
+      </div>
     </div>
   </div>
   <app-mapp></app-mapp>
@@ -72,6 +120,22 @@
 
 <div
   class="modal fade"
+  id="exampleModal3"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <app-ajouthotel [city]="city.value"></app-ajouthotel>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
   id="exampleModal2"
   tabindex="-1"
   aria-labelledby="exampleModalLabel2"
@@ -81,6 +145,22 @@
     <div class="modal-content">
       <div class="modal-body">
         <app-updatedestination [city]="destination"></app-updatedestination>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="exampleModal5"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel5"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <app-updatehotel [hotel]="hotel1"></app-updatehotel>
       </div>
     </div>
   </div>
@@ -117,13 +197,13 @@
       <!--Footer-->
       <div class="modal-footer justify-content-center">
         <a
-          href="https://mdbootstrap.com/docs/b5/angular/pro/"
           mdbBtn
           color="danger"
           [outline]="true"
           class="waves-effect"
           mdbWavesEffect
           (click)="destinationDelete(city.value)"
+          href="admin/Gestiondestination"
           >Yes</a
         >
         <a
@@ -134,6 +214,62 @@
           mdbWavesEffect
           data-dismiss="modal"
           (click)="frame.hide()"
+          >No</a
+        >
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+
+<div
+  mdbModal
+  #frame1="mdbModal"
+  class="modal fade top"
+  id="frameModalTop"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">Are you sure?</p>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <mdb-icon
+          fas
+          icon="times"
+          size="4x"
+          class="animated rotateIn"
+        ></mdb-icon>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <a
+          mdbBtn
+          color="danger"
+          [outline]="true"
+          class="waves-effect"
+          mdbWavesEffect
+          (click)="hotelDelete(hotel1.name)"
+          href="admin/Gestiondestination"
+          >Yes</a
+        >
+        <a
+          type="button"
+          mdbBtn
+          color="danger"
+          class="waves-effect"
+          mdbWavesEffect
+          data-dismiss="modal"
+          (click)="frame1.hide()"
           >No</a
         >
       </div>

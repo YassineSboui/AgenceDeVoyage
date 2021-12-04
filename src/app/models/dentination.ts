@@ -6,6 +6,7 @@ export class Dentination {
     public image: string,
     public price: number,
     public longitude: number,
-    public latitude: number
+    public latitude: number,
+    public images?: string[],
   ) {}
 }

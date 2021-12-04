@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Dentination } from 'src/app/models/dentination';
 import { DentinationService } from 'src/app/services/dentination.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ajoutdestination',
@@ -29,7 +30,7 @@ export class AjoutdestinationComponent implements OnInit {
       long == '' ||
       lal == ''
     ) {
-      this.ErrorSnackBar('Veillez remplir tous les champs');
+      this.ErrorSnackBar(' Please fill in all the fields');
     } else {
       this.dentination = new Dentination(
         name,
@@ -55,7 +56,8 @@ export class AjoutdestinationComponent implements OnInit {
 
   constructor(
     private _snackBar: MatSnackBar,
-    private DentinationService: DentinationService
+    private DentinationService: DentinationService,
+    private router: Router
   ) {}
   SuccessSnackBar(message: string) {
     this._snackBar.open(message, 'SUCCEEDED', { duration: 3000 });

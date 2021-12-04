@@ -3,6 +3,8 @@ import { Dentination } from 'src/app/models/dentination';
 import { DentinationService } from 'src/app/services/dentination.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { Hotel } from 'src/app/models/hotel';
+import { HotelsService } from 'src/app/services/hotels.service';
 
 @Component({
   selector: 'app-gestiondestination',
@@ -11,7 +13,29 @@ import { Router } from '@angular/router';
 })
 export class GestiondestinationComponent implements OnInit {
   destinations: Dentination[] = [];
+  Allhotels: Hotel[] = [];
+  cityhotels: Hotel[] = [];
   destination: Dentination = new Dentination(' ', ' ', ' ', ' ', 0, 0, 0);
+  hotel1: Hotel = new Hotel(' ', ' ', ' ', 0, 0, 0, '', true);
+
+  getcityhotels(city: String) {
+    this.hotelsService.getHotels().subscribe(
+      (response) => {
+        this.Allhotels = response;
+        this.Allhotels.forEach((element) => {
+          element.enpromo = element.promotion != 0;
+        });
+        this.cityhotels = this.Allhotels.filter(
+          (element) => element.city == city
+        );
+        return this.cityhotels;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
   destinationlist() {
     this.DentinationService.getDentination().subscribe(
       (response) => {
@@ -34,16 +58,23 @@ export class GestiondestinationComponent implements OnInit {
       }
     );
   }
+  hotelSelect(hotel: string) {
+    this.hotelsService.getOneHotel(hotel).subscribe(
+      (response) => {
+        this.hotel1 = response;
+        this.hotel1.enpromo=this.hotel1.promotion!=0
+        return this.hotel1;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 
   destinationDelete(name: string) {
     this.DentinationService.deleteDentination(name).subscribe(
       (response) => {
         this.SuccessSnackBar('Destination Deleted successfully');
-        this.router
-          .navigateByUrl('/RefreshComponent', { skipLocationChange: true })
-          .then(() => {
-            this.router.navigate(['admin/Gestiondestination']);
-          });
       },
       (error) => {
         this.ErrorSnackBar('Failed Modification');
@@ -51,10 +82,28 @@ export class GestiondestinationComponent implements OnInit {
     );
   }
 
+  hotelDelete(name: string) {
+    this.hotelsService.deleteHotel(name).subscribe(
+      (response) => {
+        this.SuccessSnackBar('Hotel Deleted successfully');
+      },
+      (error) => {
+        this.ErrorSnackBar('Failed Modification');
+      }
+    );
+  }
+
+  getcity(city: String) {
+    if (city != 'none') {
+      this.getcityhotels(city);
+    }
+  }
+
   constructor(
     private _snackBar: MatSnackBar,
     private DentinationService: DentinationService,
-    private router: Router
+    private router: Router,
+    private hotelsService: HotelsService
   ) {}
   SuccessSnackBar(message: string) {
     this._snackBar.open(message, 'SUCCEEDED', { duration: 3000 });

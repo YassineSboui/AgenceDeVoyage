@@ -1,54 +1,14 @@
 <div class="d-flex justify-content-center">
   <form class="row g-3" style="width: 50vw; padding-top: 5vh">
-    <h1 style="text-align: center">UPDATE DESTINATION</h1>
-    <div class="col-md-6">
-      <label for="inputlongitude" class="form-label">Longitude :</label>
-      <input
-        type="number"
-        class="form-control"
-        id="inputlongitude"
-        value="{{ city.longitude }}"
-        #long
-      />
-    </div>
-    <div class="col-md-6">
-      <label for="inputlatitude" class="form-label">Latitude :</label>
-      <input
-        type="number"
-        class="form-control"
-        id="inputlatitude"
-        value="{{ city.latitude }}"
-        #lal
-      />
-    </div>
+    <h1 style="text-align: center">UPDATE HOTEL</h1>
     <div class="col-md-6">
       <label for="inputAddress" class="form-label">Nom :</label>
       <input
         type="text"
         class="form-control"
         id="inputAddress"
-        value="{{ city.name }}"
         #name
-      />
-    </div>
-    <div class="col-md-6">
-      <label for="inputAddress2" class="form-label">Abbreviation :</label>
-      <input
-        type="text"
-        class="form-control"
-        id="inputAddress2"
-        value="{{ city.abbreviation }}"
-        #abv
-      />
-    </div>
-    <div class="col-md-6">
-      <label for="inputCity" class="form-label">Prix :</label>
-      <input
-        type="number"
-        class="form-control"
-        id="inputCity"
-        value="{{ city.price }}"
-        #prix
+        value="{{ hotel.name }}"
       />
     </div>
     <div class="col-md-6">
@@ -57,10 +17,53 @@
         type="text"
         class="form-control"
         id="inputState"
-        value="{{ city.image }}"
         #image
+        value="{{ hotel.image }}"
       />
     </div>
+    <div class="col-md-6">
+      <label for="inputCity" class="form-label">Prix :</label>
+      <input
+        type="number"
+        class="form-control"
+        id="inputCity"
+        #prix
+        value="{{ hotel.nightprice }}"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="inputAddress2" class="form-label">Rating :</label>
+      <input
+        type="number"
+        class="form-control"
+        id="inputAddress2"
+        #rate
+        value="{{ hotel.rating }}"
+      />
+    </div>
+    <div class="col-md-6" style="padding-top: 3vh; padding-left: 3vw">
+      <label for="inputlongitude" class="form-label">En promo :</label>
+      <input
+        type="checkbox"
+        id="inputlongitude"
+        style="margin-left: 5vh"
+        #enpromo
+        checked={{hotel.enpromo}} 
+      />
+    </div>
+    <div class="col-md-6" [hidden]="!enpromo.checked">
+      <label for="inputlatitude" class="form-label">Promotion :</label>
+      <input
+        type="number"
+        min="5"
+        max="90"
+        class="form-control"
+        id="inputlatitude"
+        #promo
+        value="{{ hotel.promotion }}"
+      />
+    </div>
+
     <div class="col-12">
       <div class="form-floating">
         <textarea
@@ -68,8 +71,8 @@
           placeholder="Leave a comment here"
           id="floatingTextarea2"
           style="height: 100px"
-          value="{{ city.description }}"
           #text
+          value="{{ hotel.description }}"
         ></textarea>
         <label for="floatingTextarea2">Description</label>
       </div>
@@ -79,18 +82,19 @@
         type="button"
         class="btn btn-dark"
         (click)="
-          Modifier(
+          UpdateHotel(
             name.value,
-            abv.value,
             text.value,
             image.value,
+            rate.value,
             prix.value,
-            long.value,
-            lal.value
+            promo.value,
+            enpromo.checked
           )
         "
+        href="admin/Gestiondestination"
       >
-        UPDATE
+        Update
       </button>
     </div>
   </form>

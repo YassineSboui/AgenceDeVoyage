@@ -30,7 +30,7 @@ export class UpdatedestinationComponent implements OnInit {
       long == '' ||
       lal == ''
     ) {
-      this.ErrorSnackBar('Veillez remplir tous les champs');
+      this.ErrorSnackBar('Please fill in all the fields');
     } else {
       this.dentination = new Dentination(
         name,
