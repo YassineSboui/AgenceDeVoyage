@@ -50,7 +50,6 @@
       <br />
       <hr class="my-5" />
       <button
-        style="margin-top: 2vh"
         type="button"
         class="btn btn-primary"
         data-bs-toggle="modal"
@@ -58,6 +57,7 @@
       >
         ADD HOTELS
       </button>
+      <br />
       <br />
       UPDATE OR DELETE HOTEL :
       <br />
@@ -87,8 +87,8 @@
           class="btn btn-danger"
           data-toggle="modal"
           data-target="#basicExample"
-          (click)="frame1.show() "
-          (click)="hotelSelect(hotel.value) "
+          (click)="frame1.show()"
+          (click)="hotelSelect(hotel.value)"
           mdbWavesEffect
         >
           Delete Hotels

@@ -15,6 +15,8 @@ export class ReservationComponent implements OnInit {
   @Input() hotel: Hotel;
   reservation: Reservation;
   confiramtion: Boolean = false;
+  prixRooms: number =0;
+  check_in :string;
 
   CreateReservation(
     city: string,
@@ -27,7 +29,12 @@ export class ReservationComponent implements OnInit {
     phone: string
   ) {
     var today = new Date();
-    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+(today.getDate()+1);
+    var date =
+      today.getFullYear() +
+      '-' +
+      (today.getMonth() + 1) +
+      '-' +
+      (today.getDate() + 1);
     if (
       city == '' ||
       checkin == '' ||
@@ -41,11 +48,17 @@ export class ReservationComponent implements OnInit {
       this.ErrorSnackBar(' Please fill in all the fields');
     } else if (Number(days) == 0) {
       this.ErrorSnackBar(' Please choose the number of days  ');
-    } else if (new Date(checkin)<new Date(date)) {
+    } else if (!email.match(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/)) {
+      this.ErrorSnackBar('Veillez saisir une adresse valide');
+    } else if (new Date(checkin) < new Date(date)) {
       this.ErrorSnackBar(' Please choose a Future Date  ');
     } else {
-      var price = this.destination.price + this.hotel.nightprice * Number(days);
-
+      var price =
+        this.destination.price +
+        this.hotel.nightprice * Number(days) * Number(rooms);
+      this.prixRooms =
+        this.hotel.nightprice * Number(rooms);
+      this.check_in=checkin;
       this.reservation = new Reservation(
         city,
         new Date(checkin),
@@ -60,8 +73,11 @@ export class ReservationComponent implements OnInit {
         price,
         'En Attente'
       );
+      this.confiramtion = true;
     }
-    this.confiramtion=true;
+  }
+  back() {
+    this.confiramtion = false;
   }
   SendReservation() {
     this.reservationService.createReservation(this.reservation).subscribe(
