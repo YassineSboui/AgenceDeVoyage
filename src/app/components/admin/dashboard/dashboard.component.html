@@ -1,1 +1,43 @@
 <app-adminnavbar></app-adminnavbar>
+<div class="d-flex justify-content-center">
+  <table mdbTable style="margin-top: 2vh; width: 90vw">
+    <thead class="black white-text">
+      <tr>
+        <th *ngFor="let head of headElements" scope="col">{{ head }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let el of reservation">
+        <td>{{ el.city }}</td>
+        <td>{{ el.checkin | date }}</td>
+        <td>{{ el.days }}</td>
+        <td>{{ el.rooms }}</td>
+        <td>{{ el.adults }}</td>
+        <td>{{ el.children }}</td>
+        <td>{{ el.email }}</td>
+        <td>{{ el.phone }}</td>
+        <td>{{ el.destination }}</td>
+        <td>{{ el.hotel }}</td>
+        <td>{{ el.price }}</td>
+        <td>
+          <select class="browser-default custom-select" #st>
+            <option value="{{ el.status }}" selected>{{ el.status }}</option>
+            <option value="Accepted">Accept</option>
+            <option value="Denied">Denie</option>
+          </select>
+          <div *ngIf="st.value!='{{ el.status }}'">
+            <button
+              type="button"
+              mdbBtn
+              color="info"
+              mdbWavesEffect
+              (click)="Modifier(el, st.value)"
+            >
+              Confirm
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

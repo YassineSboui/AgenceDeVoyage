@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { Hotel } from 'src/app/models/hotel';
 import { HotelsService } from 'src/app/services/hotels.service';
 
@@ -12,6 +13,13 @@ export class AjouthotelComponent implements OnInit {
   cityhotels: Hotel;
   enpromo: boolean = false;
   @Input() city: string;
+
+  reloadCurrentRoute() {
+    const currentUrl = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
+    });
+  }
 
   ajoutHotel(
     name: string,
@@ -50,6 +58,7 @@ export class AjouthotelComponent implements OnInit {
         this.hotelsService.createHotel(this.cityhotels).subscribe(
           (response) => {
             this.SuccessSnackBar('Your Hotel has been successfully created');
+            this.reloadCurrentRoute();
           },
           (error) => {
             this.ErrorSnackBar(' Creation Error ');
@@ -61,7 +70,8 @@ export class AjouthotelComponent implements OnInit {
 
   constructor(
     private hotelsService: HotelsService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private router: Router
   ) {}
 
   SuccessSnackBar(message: string) {

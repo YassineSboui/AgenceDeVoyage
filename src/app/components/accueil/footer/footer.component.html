@@ -16,8 +16,9 @@
           [rounded]="true"
           class="waves-light"
           mdbWavesEffect
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
+          data-toggle="modal"
+          data-target="#basicExample"
+          (click)="frame.show()"
           >Contact Us</a
         >
       </li>
@@ -96,14 +97,18 @@
   <!-- Copyright -->
 </footer>
 <!-- Footer -->
+
 <div
-  class="modal fade"
-  id="exampleModal"
+  mdbModal
+  #frame="mdbModal"
+  class="modal fade top"
+  id="frameModalTop"
   tabindex="-1"
-  aria-labelledby="exampleModalLabel"
+  role="dialog"
+  aria-labelledby="myModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-notify modal-info" role="document">
     <div class="modal-content">
       <app-contact></app-contact>
     </div>

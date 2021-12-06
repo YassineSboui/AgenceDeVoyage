@@ -8,5 +8,6 @@ export class Dentination {
     public longitude: number,
     public latitude: number,
     public images?: string[],
+    public _id?: String
   ) {}
 }

@@ -5,8 +5,9 @@
     <button
       type="button"
       class="btn btn-primary"
-      data-bs-toggle="modal"
-      data-bs-target="#exampleModal"
+      data-toggle="modal"
+      data-target="#basicExample"
+      (click)="frame2.show()"
     >
       ADD DESTINATION
     </button>
@@ -31,8 +32,9 @@
       <button
         type="button"
         class="btn btn-warning"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal2"
+        data-toggle="modal"
+        data-target="#basicExample"
+        (click)="frame4.show()"
         (click)="destinationSelect(city.value)"
       >
         Update Destination
@@ -52,8 +54,9 @@
       <button
         type="button"
         class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal3"
+        data-toggle="modal"
+        data-target="#basicExample"
+        (click)="frame3.show()"
       >
         ADD HOTELS
       </button>
@@ -76,8 +79,9 @@
         <button
           type="button"
           class="btn btn-warning"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal5"
+          data-toggle="modal"
+          data-target="#basicExample"
+          (click)="frame5.show()"
           (click)="hotelSelect(hotel.value)"
         >
           Update Hotels
@@ -102,15 +106,35 @@
 <!-- Button trigger modal -->
 
 <!-- Modal -->
+
 <div
-  class="modal fade"
-  id="exampleModal"
+  mdbModal
+  #frame2="mdbModal"
+  class="modal fade top"
+  id="frameModalTop"
   tabindex="-1"
-  aria-labelledby="exampleModalLabel"
+  role="dialog"
+  aria-labelledby="myModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-notify modal-primary" role="document">
+    <!--Content-->
     <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header justify-content-center">
+        <p class="heading lead">ADD DESTINATION</p>
+
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          (click)="frame2.hide()"
+        >
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
       <div class="modal-body">
         <app-ajoutdestination></app-ajoutdestination>
       </div>
@@ -119,14 +143,33 @@
 </div>
 
 <div
-  class="modal fade"
-  id="exampleModal3"
+  mdbModal
+  #frame3="mdbModal"
+  class="modal fade top"
+  id="frameModalTop"
   tabindex="-1"
-  aria-labelledby="exampleModalLabel"
+  role="dialog"
+  aria-labelledby="myModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-notify modal-primary" role="document">
+    <!--Content-->
     <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header justify-content-center">
+        <p class="heading lead">ADD HOTEL</p>
+
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          (click)="frame3.hide()"
+        >
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
       <div class="modal-body">
         <app-ajouthotel [city]="city.value"></app-ajouthotel>
       </div>
@@ -135,14 +178,33 @@
 </div>
 
 <div
-  class="modal fade"
-  id="exampleModal2"
+  mdbModal
+  #frame4="mdbModal"
+  class="modal fade top"
+  id="frameModalTop"
   tabindex="-1"
-  aria-labelledby="exampleModalLabel2"
+  role="dialog"
+  aria-labelledby="myModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-notify modal-primary" role="document">
+    <!--Content-->
     <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header justify-content-center">
+        <p class="heading lead">UPDATE DESTINATION</p>
+
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          (click)="frame4.hide()"
+        >
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
       <div class="modal-body">
         <app-updatedestination [city]="destination"></app-updatedestination>
       </div>
@@ -150,15 +212,36 @@
   </div>
 </div>
 
+<
+
 <div
-  class="modal fade"
-  id="exampleModal5"
+  mdbModal
+  #frame5="mdbModal"
+  class="modal fade top"
+  id="frameModalTop"
   tabindex="-1"
-  aria-labelledby="exampleModalLabel5"
+  role="dialog"
+  aria-labelledby="myModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-notify modal-primary" role="document">
+    <!--Content-->
     <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header justify-content-center">
+        <p class="heading lead">UPDATE HOTEL</p>
+
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          (click)="frame5.hide()"
+        >
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
       <div class="modal-body">
         <app-updatehotel [hotel]="hotel1"></app-updatehotel>
       </div>
@@ -203,7 +286,6 @@
           class="waves-effect"
           mdbWavesEffect
           (click)="destinationDelete(city.value)"
-          href="admin/Gestiondestination"
           >Yes</a
         >
         <a
@@ -259,7 +341,6 @@
           class="waves-effect"
           mdbWavesEffect
           (click)="hotelDelete(hotel1.name)"
-          href="admin/Gestiondestination"
           >Yes</a
         >
         <a

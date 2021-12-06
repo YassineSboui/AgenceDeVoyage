@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MailService } from 'src/app/services/mail.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Mail } from 'src/app/models/mail';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -10,6 +11,12 @@ import { Mail } from 'src/app/models/mail';
 })
 export class ContactComponent implements OnInit {
   mail: Mail = new Mail();
+
+  reloadCurrentRoute() {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['accueil']);
+    });
+  }
 
   sendmail(name: string, mail: string, subject: string, text: string) {
     if (name == '' || subject == '' || text == '' || name == '') {
@@ -20,7 +27,8 @@ export class ContactComponent implements OnInit {
       this.mail = new Mail(name, mail, subject, text);
       this.mailService.postmail(this.mail).subscribe(
         (response) => {
-          this.SuccessSnackBar('E-mail sended');
+          this.reloadCurrentRoute();
+          this.SuccessSnackBar('E-mail sended');   
         },
         (error) => {
           this.ErrorSnackBar('Fail to send');
@@ -31,7 +39,8 @@ export class ContactComponent implements OnInit {
 
   constructor(
     private _snackBar: MatSnackBar,
-    private mailService: MailService
+    private mailService: MailService,
+    private router: Router
   ) {}
 
   SuccessSnackBar(message: string) {

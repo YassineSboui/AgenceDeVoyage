@@ -4,7 +4,9 @@
       <div class="row" *ngIf="!confiramtion">
         <div
           class="booking-form"
-          style="background-image: url('{{ hotel.image }}');background-size: cover;"
+          style="background-image: url('{{
+            hotel.image
+          }}');background-size: cover;"
         >
           <div class="form-header">
             <h1>Make your reservation</h1>
@@ -104,15 +106,38 @@
               </div>
             </div>
             <div class="form-btn">
-              <button class="submit-btn" (click)="CreateReservation(city.value,checkin.value,days.value,rooms.value,adults.value,children.value,email.value,phone.value)">Book Now</button>
+              <button
+                class="submit-btn"
+                (click)="
+                  CreateReservation(
+                    city.value,
+                    checkin.value,
+                    days.value,
+                    rooms.value,
+                    adults.value,
+                    children.value,
+                    email.value,
+                    phone.value
+                  )
+                "
+              >
+                Book Now
+              </button>
             </div>
           </form>
         </div>
       </div>
     </div>
     <div class="row" *ngIf="confiramtion" style="background-color: aliceblue">
-      <div class="modal-header justify-content-center" style="background-color: aqua;">
-        <h1 class="modal-title  " id="myModalLabel">Your cart</h1>
+      <div
+        class="modal-header justify-content-center"
+        style="background-color: rgb(80, 138, 247)"
+      >
+        <img
+          src="https://image.shutterstock.com/image-vector/reservation-grunge-rubber-stamp-on-260nw-1611464203.jpg"
+          style="width: 35vw; height: 15vh"
+          alt=""
+        />
       </div>
       <!--Body-->
       <div class="modal-body">
@@ -128,32 +153,32 @@
             <tr>
               <th scope="row">1</th>
               <td>Check In</td>
-              <td>{{check_in}}</td>
+              <td>{{ check_in }}</td>
             </tr>
             <tr>
               <th scope="row">2</th>
               <td>Hotel</td>
-              <td>{{reservation.hotel}}</td>
+              <td>{{ reservation.hotel }}</td>
             </tr>
             <tr>
               <th scope="row">3</th>
-              <td>{{reservation.rooms}} Room(s)</td>
-              <td>{{prixRooms}} TND</td>
+              <td>{{ reservation.rooms }} Room(s)</td>
+              <td>{{ prixRooms }} TND</td>
             </tr>
             <tr>
               <th scope="row">4</th>
-              <td>Period : {{reservation.days}} Day(s)</td>
-              <td>x {{reservation.days}} </td>
+              <td>Period : {{ reservation.days }} Day(s)</td>
+              <td>x {{ reservation.days }}</td>
             </tr>
             <tr>
               <th scope="row">5</th>
-              <td>{{reservation.destination}}</td>
-              <td>{{destination.price}} TND</td>
+              <td>{{ reservation.destination }}</td>
+              <td>{{ destination.price }} TND</td>
             </tr>
             <tr class="total">
               <th scope="row">6</th>
               <td>Total</td>
-              <td>{{reservation.price}} TND</td>
+              <td>{{ reservation.price }} TND</td>
               <td></td>
             </tr>
           </tbody>
@@ -172,7 +197,13 @@
         >
           Change Reservation
         </button>
-        <button mdbBtn color="primary" class="waves-light" mdbWavesEffect (click)="SendReservation()">
+        <button
+          mdbBtn
+          color="primary"
+          class="waves-light"
+          mdbWavesEffect
+          (click)="SendReservation()"
+        >
           Checkout
         </button>
       </div>

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { DentinationService } from 'src/app/services/dentination.service';
 import { Dentination } from 'src/app/models/dentination';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-updatedestination',
@@ -11,6 +12,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class UpdatedestinationComponent implements OnInit {
   @Input() city: Dentination;
   dentination: Dentination = new Dentination('', '', '', '', 0, 0, 0);
+
+  reloadCurrentRoute() {
+    const currentUrl = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
+    });
+  }
 
   Modifier(
     name: string,
@@ -47,6 +55,7 @@ export class UpdatedestinationComponent implements OnInit {
       ).subscribe(
         (response) => {
           this.SuccessSnackBar('Destination changed successfully');
+          this.reloadCurrentRoute();
         },
         (error) => {
           this.ErrorSnackBar('Error Modification');
@@ -57,7 +66,8 @@ export class UpdatedestinationComponent implements OnInit {
 
   constructor(
     private _snackBar: MatSnackBar,
-    private DentinationService: DentinationService
+    private DentinationService: DentinationService,
+    private router: Router
   ) {}
   SuccessSnackBar(message: string) {
     this._snackBar.open(message, 'SUCCEEDED', { duration: 3000 });

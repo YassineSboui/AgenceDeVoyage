@@ -4,6 +4,7 @@ import { Hotel } from 'src/app/models/hotel';
 import { ReservationService } from 'src/app/services/reservation.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Reservation } from 'src/app/models/reservation';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reservation',
@@ -15,8 +16,14 @@ export class ReservationComponent implements OnInit {
   @Input() hotel: Hotel;
   reservation: Reservation;
   confiramtion: Boolean = false;
-  prixRooms: number =0;
-  check_in :string;
+  prixRooms: number = 0;
+  check_in: string;
+
+  reloadCurrentRoute() {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['destination']);
+    });
+  }
 
   CreateReservation(
     city: string,
@@ -56,9 +63,8 @@ export class ReservationComponent implements OnInit {
       var price =
         this.destination.price +
         this.hotel.nightprice * Number(days) * Number(rooms);
-      this.prixRooms =
-        this.hotel.nightprice * Number(rooms);
-      this.check_in=checkin;
+      this.prixRooms = this.hotel.nightprice * Number(rooms);
+      this.check_in = checkin;
       this.reservation = new Reservation(
         city,
         new Date(checkin),
@@ -85,6 +91,7 @@ export class ReservationComponent implements OnInit {
         this.SuccessSnackBar(
           'Your Reservation has been successfully Sended wait for admin Response'
         );
+        this.reloadCurrentRoute();
       },
       (error) => {
         this.ErrorSnackBar('Error ');
@@ -94,7 +101,8 @@ export class ReservationComponent implements OnInit {
 
   constructor(
     private _snackBar: MatSnackBar,
-    private reservationService: ReservationService
+    private reservationService: ReservationService,
+    private router: Router
   ) {}
 
   SuccessSnackBar(message: string) {

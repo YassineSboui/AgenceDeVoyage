@@ -7,6 +7,7 @@ export class Hotel {
     public nightprice: number,
     public promotion: number,
     public city: string,
-    public enpromo : boolean
+    public enpromo : boolean,
+    public _id?: String
   ) {}
 }

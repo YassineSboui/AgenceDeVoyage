@@ -12,6 +12,6 @@ export class Reservation {
     public hotel: String,
     public price: Number,
     public status: String,
-    public _id?: String
+    public _id?: string
     ) {}
 }

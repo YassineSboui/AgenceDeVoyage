@@ -41,6 +41,7 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AjouthotelComponent } from './components/admin/gestiondestination/ajouthotel/ajouthotel.component';
 import { UpdatehotelComponent } from './components/admin/gestiondestination/updatehotel/updatehotel.component';
+import { DatePipe } from './pipes/date.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +73,7 @@ import { UpdatehotelComponent } from './components/admin/gestiondestination/upda
     ReservationComponent,
     AjouthotelComponent,
     UpdatehotelComponent,
+    DatePipe,
   ],
   imports: [
     BrowserModule,
