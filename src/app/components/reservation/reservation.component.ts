@@ -18,7 +18,8 @@ export class ReservationComponent implements OnInit {
   confiramtion: Boolean = false;
   prixRooms: number = 0;
   check_in: string;
-
+  usermail: string = String(localStorage.getItem('UserMail'));
+  mail: string = '';
   reloadCurrentRoute() {
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigate(['destination']);
@@ -52,11 +53,14 @@ export class ReservationComponent implements OnInit {
       email == '' ||
       phone == ''
     ) {
+      ('/[0-9]{8}/');
       this.ErrorSnackBar(' Please fill in all the fields');
     } else if (Number(days) == 0) {
       this.ErrorSnackBar(' Please choose the number of days  ');
     } else if (!email.match(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/)) {
       this.ErrorSnackBar('Veillez saisir une adresse valide');
+    } else if (!phone.match(/^[0-9]{8}$/)) {
+      this.ErrorSnackBar('Veillez saisir une Numero valide');
     } else if (new Date(checkin) < new Date(date)) {
       this.ErrorSnackBar(' Please choose a Future Date  ');
     } else {
@@ -112,5 +116,10 @@ export class ReservationComponent implements OnInit {
     this._snackBar.open(message, 'ERROR', { duration: 3000 });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.usermail[0] != '' && this.usermail != 'null') {
+      this.mail = this.usermail;
+    }
+    console.log(this.usermail);
+  }
 }

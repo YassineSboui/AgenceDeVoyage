@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class AuthentificationService {
   private baseUrl = 'http://localhost:3000/api/auth/';
-  public loggedUser: string | undefined;
+  public loggedUser: string ;
+  public UserMail: string ;
   public isloggedIn: Boolean = false;
   public role: string ;
 
@@ -17,15 +18,19 @@ export class AuthentificationService {
     this.isloggedIn = false;
     this.loggedUser = undefined;
     this.role = undefined;
+    this.UserMail = undefined;
     localStorage.removeItem('loggedUser');
     localStorage.removeItem('isloggedIn');
     localStorage.removeItem('UserRole');
+    localStorage.removeItem('UserMail');
   }
   SignIn(user: User) {
     this.loggedUser = user.firstName + ' ' + user.lastName;
     this.isloggedIn = true;
     this.role = user.role;
+    this.UserMail = user.email;
     localStorage.setItem('loggedUser', this.loggedUser);
+    localStorage.setItem('UserMail', this.UserMail);
     localStorage.setItem('UserRole', this.role); 
     localStorage.setItem('isloggedIn', String(this.isloggedIn));
   }

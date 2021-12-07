@@ -4,9 +4,8 @@
       <div class="row" *ngIf="!confiramtion">
         <div
           class="booking-form"
-          style="background-image: url('{{
-            hotel.image
-          }}');background-size: cover;"
+          style="background-image: url('{{hotel.image}}');
+          background-size: cover;"
         >
           <div class="form-header">
             <h1>Make your reservation</h1>
@@ -88,6 +87,7 @@
                     class="form-control"
                     type="email"
                     placeholder="Enter your Email"
+                    value="{{ mail }}"
                     #email
                   />
                   <span class="form-label">Email</span>

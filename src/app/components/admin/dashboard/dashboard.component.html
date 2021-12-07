@@ -1,4 +1,7 @@
 <app-adminnavbar></app-adminnavbar>
+<div class="d-flex justify-content-center" style="padding-top: 3vh;">
+  <h1>Waiting Reservation</h1>
+</div>
 <div class="d-flex justify-content-center">
   <table mdbTable style="margin-top: 2vh; width: 90vw">
     <thead class="black white-text">
@@ -7,7 +10,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr mdbTableCol *ngFor="let el of reservation">
+      <tr *ngIf="count==0">
+        <td>NO DATA FOUND</td>
+      </tr>
+      <tr mdbTableCol *ngFor="let el of waitingreservation">
         <td>{{ el.city }}</td>
         <td>{{ el.checkin | date }}</td>
         <td>{{ el.days }}</td>
@@ -25,7 +31,7 @@
             <option value="Accepted">Accept</option>
             <option value="Denied">Denie</option>
           </select>
-          <div *ngIf="st.value!='{{ el.status }}'">
+          <div *ngIf="st.value != '{{ el.status }}'">
             <button
               type="button"
               mdbBtn
@@ -37,6 +43,51 @@
             </button>
           </div>
         </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<hr class="my-10" style="margin-top: 5vh;"/>
+<div style="display: flex" >
+  <canvas mdbChart 
+      [chartType]="chartType"
+      height="50vh"
+      [datasets]="chartDatasets"
+      [labels]="chartLabels"
+      [colors]="chartColors"
+      [options]="chartOptions"
+      [legend]="true"
+      (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)">
+  </canvas>
+</div>
+<hr class="my-10" style="margin-top: 5vh;"/>
+<div class="d-flex justify-content-center" style="padding-top: 5vh;">
+  <h1>Confirmed Reservation</h1>
+</div>
+<div class="d-flex justify-content-center" style="padding-bottom: 10vh;">
+  <table mdbTable style="margin-top: 2vh; width: 90vw">
+    <thead class="black white-text">
+      <tr>
+        <th *ngFor="let head of headElements1" scope="col">{{ head }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="count1==0">
+        <td>NO DATA FOUND</td>
+      </tr>
+      <tr mdbTableCol *ngFor="let el of acceptedreservation">
+        <td>{{ el.city }}</td>
+        <td>{{ el.checkin | date }}</td>
+        <td>{{ el.days }}</td>
+        <td>{{ el.rooms }}</td>
+        <td>{{ el.adults }}</td>
+        <td>{{ el.children }}</td>
+        <td>{{ el.email }}</td>
+        <td>{{ el.phone }}</td>
+        <td>{{ el.destination }}</td>
+        <td>{{ el.hotel }}</td>
+        <td>{{ el.price }}</td>
       </tr>
     </tbody>
   </table>
