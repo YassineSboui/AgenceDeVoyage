@@ -24,8 +24,8 @@ export class ReservationService {
   updateReservation(id: string, Reservation: Object): Observable<Object> {
     return this.http.put(`${this.baseUrl}${id}`, Reservation);
   }
-  deleteReservation(name: string): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${name}`);
+  deleteReservation(id: string): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`);
   }
   
 }

@@ -14,6 +14,6 @@ export class MailService {
     return this.http.post(`${this.baseUrl}`, mail);
   }
   sendmail(mail: Object): Observable<any> {
-    return this.http.post(`${this.baseUrl}`, mail);
+    return this.http.post(`${this.baseUrl2}`, mail);
   }
 }

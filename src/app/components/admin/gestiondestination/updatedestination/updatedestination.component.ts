@@ -13,13 +13,6 @@ export class UpdatedestinationComponent implements OnInit {
   @Input() city: Dentination;
   dentination: Dentination = new Dentination('', '', '', '', 0, 0, 0);
 
-  reloadCurrentRoute() {
-    const currentUrl = this.router.url;
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate([currentUrl]);
-    });
-  }
-
   Modifier(
     name: string,
     abv: string,
@@ -55,7 +48,7 @@ export class UpdatedestinationComponent implements OnInit {
       ).subscribe(
         (response) => {
           this.SuccessSnackBar('Destination changed successfully');
-          this.reloadCurrentRoute();
+          location.reload();
         },
         (error) => {
           this.ErrorSnackBar('Error Modification');

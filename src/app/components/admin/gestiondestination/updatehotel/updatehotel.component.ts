@@ -14,13 +14,6 @@ export class UpdatehotelComponent implements OnInit {
   enpromo: boolean = false;
   @Input() hotel: Hotel;
 
-  reloadCurrentRoute() {
-    const currentUrl = this.router.url;
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-        this.router.navigate([currentUrl]);
-    });
-}
-
   UpdateHotel(
     name: string,
     description: string,
@@ -60,7 +53,7 @@ export class UpdatehotelComponent implements OnInit {
           .subscribe(
             (response) => {
               this.SuccessSnackBar('Your Hotel has been successfully Updated');
-              this.reloadCurrentRoute();
+              location.reload();
             },
             (error) => {
               this.ErrorSnackBar(' Creation Error ');
@@ -83,7 +76,5 @@ export class UpdatehotelComponent implements OnInit {
     this._snackBar.open(message, 'ERROR', { duration: 3000 });
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 }

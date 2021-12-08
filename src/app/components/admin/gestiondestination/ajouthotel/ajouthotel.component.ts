@@ -14,13 +14,6 @@ export class AjouthotelComponent implements OnInit {
   enpromo: boolean = false;
   @Input() city: string;
 
-  reloadCurrentRoute() {
-    const currentUrl = this.router.url;
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate([currentUrl]);
-    });
-  }
-
   ajoutHotel(
     name: string,
     description: string,
@@ -58,7 +51,7 @@ export class AjouthotelComponent implements OnInit {
         this.hotelsService.createHotel(this.cityhotels).subscribe(
           (response) => {
             this.SuccessSnackBar('Your Hotel has been successfully created');
-            this.reloadCurrentRoute();
+            location.reload();
           },
           (error) => {
             this.ErrorSnackBar(' Creation Error ');

@@ -18,13 +18,6 @@ export class GestiondestinationComponent implements OnInit {
   destination: Dentination = new Dentination(' ', ' ', ' ', ' ', 0, 0, 0);
   hotel1: Hotel = new Hotel(' ', ' ', ' ', 0, 0, 0, '', true);
 
-  reloadCurrentRoute() {
-    const currentUrl = this.router.url;
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate([currentUrl]);
-    });
-  }
-
   getcityhotels(city: String) {
     this.hotelsService.getHotels().subscribe(
       (response) => {
@@ -87,7 +80,7 @@ export class GestiondestinationComponent implements OnInit {
       this.DentinationService.deleteDentination(name).subscribe(
         (response) => {
           this.SuccessSnackBar('Destination Deleted successfully');
-          this.reloadCurrentRoute();
+          location.reload();
         },
         (error) => {
           this.ErrorSnackBar('Failed Modification');
@@ -100,7 +93,7 @@ export class GestiondestinationComponent implements OnInit {
     this.hotelsService.deleteHotel(name).subscribe(
       (response) => {
         this.SuccessSnackBar('Hotel Deleted successfully');
-        this.reloadCurrentRoute();
+        location.reload();
       },
       (error) => {
         this.ErrorSnackBar('Failed Modification');

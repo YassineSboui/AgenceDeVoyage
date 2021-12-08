@@ -12,13 +12,6 @@ import { Router } from '@angular/router';
 export class AjoutdestinationComponent implements OnInit {
   dentination: Dentination = new Dentination('', '', '', '', 0, 0, 0);
 
-  reloadCurrentRoute() {
-    const currentUrl = this.router.url;
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate([currentUrl]);
-    });
-  }
-
   ajoutDestination(
     name: string,
     abv: string,
@@ -53,7 +46,7 @@ export class AjoutdestinationComponent implements OnInit {
           this.SuccessSnackBar(
             'Your Destination has been successfully created'
           );
-          this.reloadCurrentRoute();
+          location.reload();
         },
         (error) => {
           this.ErrorSnackBar(' Creation Error ');

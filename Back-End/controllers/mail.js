@@ -2,16 +2,16 @@ const nodemailer = require("nodemailer");
 const Mail = require('../models/mail');
 
 
-exports.sendmail = (req , res, next) => {
+exports.sendmail = (req, res, next) => {
     async function main() {
         const mail = new Mail({ ...req.body });
 
         let transporter = nodemailer.createTransport({
             service: "gmail",
-            secure: false, 
+            secure: false,
             auth: {
-                user: "yassinosb7@gmail.com", 
-                pass: "sab3oun7", 
+                user: "yassinosb7@gmail.com",
+                pass: "sab3oun7",
             },
             tls: { rejectUnauthorized: false }
         });
@@ -23,24 +23,24 @@ exports.sendmail = (req , res, next) => {
             subject: mail.subject, // Subject line
             text: " Name: " + mail.name + "\n Mail: " + mail.mail + " :\n " + mail.text // plain text body
 
-        }).then(() => res.status(200).json({ remessage:"mail envoyé" }))
-        .catch(error => res.status(400).json({ error }));;
+        }).then(() => res.status(200).json({ remessage: "mail envoyé" }))
+            .catch(error => res.status(400).json({ error }));;
 
     }
 
     main().catch(console.error);
 }
 
-exports.sendresult = (req , res, next) => {
+exports.sendresult = (req, res, next) => {
     async function main() {
         const mail = new Mail({ ...req.body });
 
         let transporter = nodemailer.createTransport({
             service: "gmail",
-            secure: false, 
+            secure: false,
             auth: {
-                user: "yassinosb7@gmail.com", 
-                pass: "sab3oun7", 
+                user: "yassinosb7@gmail.com",
+                pass: "sab3oun7",
             },
             tls: { rejectUnauthorized: false }
         });
@@ -52,8 +52,8 @@ exports.sendresult = (req , res, next) => {
             subject: mail.subject, // Subject line
             text: mail.text // plain text body
 
-        }).then(() => res.status(200).json({ remessage:"mail envoyé" }))
-        .catch(error => res.status(400).json({ error }));;
+        }).then(() => res.status(200).json({ remessage: "mail envoyé" }))
+            .catch(error => res.status(400).json({ error }));;
 
     }
 
