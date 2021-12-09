@@ -1,5 +1,5 @@
 <app-adminnavbar></app-adminnavbar>
-<div class="d-flex justify-content-center" style="padding-top: 3vh;">
+<div class="d-flex justify-content-center" style="padding-top: 3vh">
   <h1>Waiting Reservation</h1>
 </div>
 <div class="d-flex justify-content-center">
@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngIf="count==0">
+      <tr *ngIf="count == 0">
         <td>NO DATA FOUND</td>
       </tr>
       <tr mdbTableCol *ngFor="let el of waitingreservation">
@@ -24,7 +24,7 @@
         <td>{{ el.phone }}</td>
         <td>{{ el.destination }}</td>
         <td>{{ el.hotel }}</td>
-        <td>{{ el.price }}</td>
+        <td>{{ el.price }} TND</td>
         <td>
           <select class="browser-default custom-select" #st>
             <option value="{{ el.status }}" selected>{{ el.status }}</option>
@@ -47,25 +47,27 @@
     </tbody>
   </table>
 </div>
-<hr class="my-10" style="margin-top: 5vh;"/>
-<div style="display: flex" >
-  <canvas mdbChart 
-      [chartType]="chartType"
-      height="50vh"
-      [datasets]="chartDatasets"
-      [labels]="chartLabels"
-      [colors]="chartColors"
-      [options]="chartOptions"
-      [legend]="true"
-      (chartHover)="chartHovered($event)"
-      (chartClick)="chartClicked($event)">
+<hr class="my-10" style="margin-top: 5vh" />
+<div style="display: flex">
+  <canvas
+    mdbChart
+    [chartType]="chartType"
+    height="50vh"
+    [datasets]="chartDatasets"
+    [labels]="chartLabels"
+    [colors]="chartColors"
+    [options]="chartOptions"
+    [legend]="true"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"
+  >
   </canvas>
 </div>
-<hr class="my-10" style="margin-top: 5vh;"/>
-<div class="d-flex justify-content-center" style="padding-top: 5vh;">
+<hr class="my-10" style="margin-top: 5vh" />
+<div class="d-flex justify-content-center" style="padding-top: 5vh">
   <h1>Confirmed Reservation</h1>
 </div>
-<div class="d-flex justify-content-center" style="padding-bottom: 10vh;">
+<div class="d-flex justify-content-center" style="padding-bottom: 10vh">
   <table mdbTable style="margin-top: 2vh; width: 90vw">
     <thead class="black white-text">
       <tr>
@@ -73,7 +75,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngIf="count1==0">
+      <tr *ngIf="count1 == 0">
         <td>NO DATA FOUND</td>
       </tr>
       <tr mdbTableCol *ngFor="let el of acceptedreservation">
@@ -87,7 +89,7 @@
         <td>{{ el.phone }}</td>
         <td>{{ el.destination }}</td>
         <td>{{ el.hotel }}</td>
-        <td>{{ el.price }}</td>
+        <td>{{ el.price }} TND</td>
       </tr>
     </tbody>
   </table>

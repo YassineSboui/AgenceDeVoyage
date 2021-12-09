@@ -1,0 +1,10 @@
+img {
+  height: 75vh;
+}
+.price {
+  color: grey;
+  font-size: 22px;
+}
+span {
+  text-decoration: line-through;
+}

@@ -30,10 +30,10 @@
       />
     </mdb-carousel-item>
   </mdb-carousel>
-  <br />
 
-  
-  
+  <div class="d-flex justify-content-center" *ngFor="let offre of offres">
+    <app-offre-card [offre]="offre"></app-offre-card>
+  </div>
 
   <app-footer></app-footer>
 </div>

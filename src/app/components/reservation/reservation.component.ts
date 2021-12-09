@@ -120,6 +120,5 @@ export class ReservationComponent implements OnInit {
     if (this.usermail[0] != '' && this.usermail != 'null') {
       this.mail = this.usermail;
     }
-    console.log(this.usermail);
   }
 }

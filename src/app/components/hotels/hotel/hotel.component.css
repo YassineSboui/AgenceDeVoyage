@@ -21,7 +21,7 @@
 .flip-card {
   background-color: transparent;
   width: 45vw;
-  height: 90vh;
+  height: 650px;
   perspective: 1000px;
 }
 
@@ -70,7 +70,7 @@ h1 {
 }
 img {
   height: 60vh;
-  width: 100vh;
+  width: 100vw;
 }
 .supp {
   text-decoration: line-through;
@@ -125,7 +125,7 @@ img {
 p {
   font-family: "Times New Roman", Times, serif;
   font-style: italic;
-  font-size: x-large;
+  font-size: 1.5vw;
   margin: 40px;
   color: black;
 }

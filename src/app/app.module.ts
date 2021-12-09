@@ -42,6 +42,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AjouthotelComponent } from './components/admin/gestiondestination/ajouthotel/ajouthotel.component';
 import { UpdatehotelComponent } from './components/admin/gestiondestination/updatehotel/updatehotel.component';
 import { DatePipe } from './pipes/date.pipe';
+import { OffreCardComponent } from './components/offre/offre-card/offre-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +75,7 @@ import { DatePipe } from './pipes/date.pipe';
     AjouthotelComponent,
     UpdatehotelComponent,
     DatePipe,
+    OffreCardComponent,
   ],
   imports: [
     BrowserModule,

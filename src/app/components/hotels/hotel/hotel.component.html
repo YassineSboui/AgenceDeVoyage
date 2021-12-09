@@ -45,13 +45,14 @@
     </div>
     <div class="flip-card-back">
       <mdb-card-body>
-        <h1 class="font-weight-bold mt-2 mb-3" style="font-size: xx-large">
+        <h1 class="font-weight-bold mt-2 mb-3" style="font-size: 2.5vw">
           {{ hotel.name }}
         </h1>
         <p>
           {{ hotel.description }}
         </p>
         <button
+          style="margin-top: -1vw"
           mdbBtn
           type="button"
           gradient="peach"
@@ -59,14 +60,14 @@
           size="lg"
           mdbWavesEffect
         >
-          <span style="font-size: xx-large">{{ hotel.rating }}</span> / 5
+          <span style="font-size: 2.5vw">{{ hotel.rating }}</span> / 5
         </button>
         <br />
         <br />
-        <span *ngFor="let i of table(hotel.rating)">
+        <span *ngFor="let i of table(hotel.rating)" style="font-size: 1vw">
           <i class="fas fa-star" style="color: yellow; zoom: 3"></i>
         </span>
-        <span *ngFor="let i of table1(hotel.rating)">
+        <span *ngFor="let i of table1(hotel.rating)" style="font-size: 1vw">
           <i class="far fa-star" style="color: yellow; zoom: 3"></i>
         </span>
         <br />

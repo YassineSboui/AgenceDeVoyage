@@ -32,7 +32,6 @@
     "leaflet": "^1.7.1",
     "mdb-angular-ui-kit": "^1.5.0",
     "mdb-ui-kit": "^3.9.0",
-    "ngx-star-rating": "^2.1.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"

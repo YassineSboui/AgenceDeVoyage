@@ -1,0 +1,50 @@
+<mdb-card
+  [cascade]="true"
+  [wider]="true"
+  [reverse]="true"
+  class="my-4"
+  style="width: 70vw"
+>
+  <!--Card image-->
+  <div class="view view-cascade overlay waves-light" mdbWavesEffect>
+    <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
+      <mdb-carousel-item *ngFor="let img of offre.images">
+        <img class="d-block w-100" src="{{ img }}" alt="First slide" />
+      </mdb-carousel-item>
+    </mdb-carousel>
+    <a>
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+  <!--/Card image-->
+
+  <!-- Card content -->
+  <mdb-card-body [cascade]="true" class="text-center">
+    <!--Title-->
+    <mdb-card-title>
+      <h1>
+        <strong>{{ offre.hotel }}</strong>
+      </h1>
+    </mdb-card-title>
+
+    <h3 class="indigo-text">
+      <strong> {{ offre.destination }}</strong>
+    </h3>
+
+    <mdb-card-text>
+      {{ offre.desc }}
+    </mdb-card-text>
+    <button
+      mdbBtn
+      type="button"
+      gradient="aqua"
+      [block]="true"
+      mdbWavesEffect
+    >
+      {{ offre.days }} Day(s) + {{ offre.rooms }} Room(s) +
+      {{ offre.adults }} Adult(s) + Return Ticket({{ offre.destination }}) =  
+      <span>{{ offre.price }} DTN </span>
+      <p class="price">{{ getprice() }} DTN</p>
+    </button>
+  </mdb-card-body>
+</mdb-card>

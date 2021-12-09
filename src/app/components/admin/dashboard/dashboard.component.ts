@@ -20,6 +20,29 @@ export class DashboardComponent implements OnInit {
   count1: number;
   mail: Mail;
 
+  DeleteOlderReservation(acceptedreservation: Reservation[]) {
+    var today = new Date();
+    var date =
+      today.getFullYear() +
+      '-' +
+      (today.getMonth() + 1) +
+      '-' +
+      today.getDate();
+
+    for (let index = 0; index < acceptedreservation.length; index++) {
+      if (new Date(acceptedreservation[index].checkin) < new Date(date)) {
+        this.reservationService
+          .deleteReservation(acceptedreservation[index]._id)
+          .subscribe(
+            (response) => {},
+            (error) => {
+              this.ErrorSnackBar('Fail to delete');
+            }
+          );
+      }
+    }
+  }
+
   sendresult(mail: string, text: string) {
     this.mail = new Mail('', mail, 'Resevation Result', text);
     this.mailService.sendmail(this.mail).subscribe(
@@ -108,6 +131,7 @@ export class DashboardComponent implements OnInit {
         this.acceptedreservation = this.allreservation.filter(
           (element) => element.status == 'Accepted'
         );
+        this.DeleteOlderReservation(this.acceptedreservation);
         this.count1 = this.acceptedreservation.length;
         for (let index = 0; index < this.allreservation.length; index++) {
           if (
@@ -127,7 +151,6 @@ export class DashboardComponent implements OnInit {
           this.chartDatasets[0].data.push(k);
         }
         this.chartDatasets[0].data.push(0);
-        console.log(this.chartDatasets[0].data);
       },
       (error) => {
         console.log(error);
