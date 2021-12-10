@@ -4,7 +4,7 @@
       <div class="row" *ngIf="!confiramtion">
         <div
           class="booking-form"
-          style="background-image: url('{{hotel.image}}');
+          style="background-image: url('{{ hotel.image }}');
           background-size: cover;"
         >
           <div class="form-header">
@@ -23,7 +23,13 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <input class="form-control" type="date" required #checkin />
+                  <input
+                    class="form-control"
+                    type="date"
+                    [min]="mindate"
+                    required
+                    #checkin
+                  />
                   <span class="form-label">Check In</span>
                 </div>
               </div>

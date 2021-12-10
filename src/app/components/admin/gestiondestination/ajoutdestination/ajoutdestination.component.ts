@@ -31,6 +31,10 @@ export class AjoutdestinationComponent implements OnInit {
       lal == ''
     ) {
       this.ErrorSnackBar(' Please fill in all the fields');
+    } else if (name.length > 10 || abv.length > 5) {
+      this.ErrorSnackBar('Name or Abbreviation To long');
+    } else if (Number(prix) < 0 || Number(prix) > 10000) {
+      this.ErrorSnackBar('pleae choose a realistic price');
     } else {
       this.dentination = new Dentination(
         name,

@@ -8,3 +8,14 @@ img {
 span {
   text-decoration: line-through;
 }
+h1 {
+  font-weight: normal;
+  position: relative;
+  background: #f4f9fa;
+  width: 50%;
+  color: #f8463f;
+  text-align: center;
+  margin: 20px auto 40px;
+  text-transform: uppercase;
+  border-radius: 2px;
+}

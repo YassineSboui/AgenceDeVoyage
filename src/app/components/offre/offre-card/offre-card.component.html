@@ -34,17 +34,39 @@
     <mdb-card-text>
       {{ offre.desc }}
     </mdb-card-text>
-    <button
-      mdbBtn
-      type="button"
-      gradient="aqua"
-      [block]="true"
-      mdbWavesEffect
-    >
+    <button mdbBtn type="button" gradient="aqua" [block]="true" mdbWavesEffect>
       {{ offre.days }} Day(s) + {{ offre.rooms }} Room(s) +
-      {{ offre.adults }} Adult(s) + Return Ticket({{ offre.destination }}) =  
+      {{ offre.adults }} Adult(s) + Return Ticket({{ offre.destination }}) =
       <span>{{ offre.price }} DTN </span>
       <p class="price">{{ getprice() }} DTN</p>
+      <a
+        mdbBtn
+        gradient="purple"
+        size="lg"
+        [rounded]="true"
+        class="waves-light"
+        mdbWavesEffect
+        (click)="frame.show()"
+      >
+        Check Rooms</a
+      >
     </button>
   </mdb-card-body>
 </mdb-card>
+
+<div
+  mdbModal
+  #frame="mdbModal"
+  class="modal fade top"
+  id="frameModalTop"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal1">
+      <app-offre-reservation></app-offre-reservation>
+    </div>
+  </div>
+</div>

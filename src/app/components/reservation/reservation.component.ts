@@ -20,10 +20,22 @@ export class ReservationComponent implements OnInit {
   check_in: string;
   usermail: string = String(localStorage.getItem('UserMail'));
   mail: string = '';
+  mindate: String;
   reloadCurrentRoute() {
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigate(['destination']);
     });
+  }
+
+  getmindate() {
+    var today = new Date();
+    var date =
+      today.getFullYear() +
+      '-' +
+      (today.getMonth() + 1) +
+      '-' +
+      (today.getDate() + 1);
+    this.mindate = date;
   }
 
   CreateReservation(
@@ -55,12 +67,14 @@ export class ReservationComponent implements OnInit {
     ) {
       ('/[0-9]{8}/');
       this.ErrorSnackBar(' Please fill in all the fields');
-    } else if (Number(days) == 0) {
-      this.ErrorSnackBar(' Please choose the number of days  ');
+    } else if (Number(days) < 1 || Number(days) > 60) {
+      this.ErrorSnackBar(
+        ' Please choose the number of days between 1 and 60  '
+      );
     } else if (!email.match(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/)) {
-      this.ErrorSnackBar('Veillez saisir une adresse valide');
+      this.ErrorSnackBar('please choose a valide adress');
     } else if (!phone.match(/^[0-9]{8}$/)) {
-      this.ErrorSnackBar('Veillez saisir une Numero valide');
+      this.ErrorSnackBar('Please choose a valide number');
     } else if (new Date(checkin) < new Date(date)) {
       this.ErrorSnackBar(' Please choose a Future Date  ');
     } else {
@@ -120,5 +134,6 @@ export class ReservationComponent implements OnInit {
     if (this.usermail[0] != '' && this.usermail != 'null') {
       this.mail = this.usermail;
     }
+    this.getmindate();
   }
 }

@@ -31,35 +31,37 @@ export class UpdatehotelComponent implements OnInit {
       nightprice == ''
     ) {
       this.ErrorSnackBar('Please fill in all the fields');
+    } else if (Number(rating) < 0 || Number(rating) > 5) {
+      this.ErrorSnackBar('Please choose A rating between 0 and 5');
+    } else if (name.length > 10) {
+      this.ErrorSnackBar('Name To long');
+    } else if (Number(nightprice) < 0 || Number(nightprice) > 10000) {
+      this.ErrorSnackBar('pleae choose a realistic price');
     } else {
       if (Boolean(enpromo) == false) {
         promotion = String(0);
       }
-      if (Number(rating) < 0 && Number(rating) > 5) {
-        this.ErrorSnackBar('Please choose A rating between 0 and 5');
-      } else {
-        this.cityhotels = new Hotel(
-          name,
-          description,
-          image,
-          Number(rating),
-          Number(nightprice),
-          Number(promotion),
-          this.hotel.city,
-          Boolean(enpromo)
+      this.cityhotels = new Hotel(
+        name,
+        description,
+        image,
+        Number(rating),
+        Number(nightprice),
+        Number(promotion),
+        this.hotel.city,
+        Boolean(enpromo)
+      );
+      this.hotelsService
+        .updateHotel(this.hotel.name, this.cityhotels)
+        .subscribe(
+          (response) => {
+            this.SuccessSnackBar('Your Hotel has been successfully Updated');
+            location.reload();
+          },
+          (error) => {
+            this.ErrorSnackBar(' Creation Error ');
+          }
         );
-        this.hotelsService
-          .updateHotel(this.hotel.name, this.cityhotels)
-          .subscribe(
-            (response) => {
-              this.SuccessSnackBar('Your Hotel has been successfully Updated');
-              location.reload();
-            },
-            (error) => {
-              this.ErrorSnackBar(' Creation Error ');
-            }
-          );
-      }
     }
   }
 
