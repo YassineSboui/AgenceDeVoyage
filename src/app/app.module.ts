@@ -44,6 +44,8 @@ import { UpdatehotelComponent } from './components/admin/gestiondestination/upda
 import { DatePipe } from './pipes/date.pipe';
 import { OffreCardComponent } from './components/offre/offre-card/offre-card.component';
 import { OffreReservationComponent } from './components/offre/offre-reservation/offre-reservation.component';
+import { GestionOffreComponent } from './components/admin/gestion-offre/gestion-offre.component';
+import { AjouteroffreComponent } from './components/admin/gestion-offre/ajouteroffre/ajouteroffre.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,6 +80,9 @@ import { OffreReservationComponent } from './components/offre/offre-reservation/
     DatePipe,
     OffreCardComponent,
     OffreReservationComponent,
+    GestionOffreComponent,
+    AjouteroffreComponent
+
   ],
   imports: [
     BrowserModule,

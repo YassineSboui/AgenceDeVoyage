@@ -29,20 +29,39 @@
         </h6>
       </a>
       <!-- Post title -->
-      <h3 class="font-weight-bold mb-3">
-        <strong> {{ destination.name | uppercase }}</strong>
-      </h3>
+      <div class="d-flex justify-content-center">
+        <h1 class="font-weight-bold mb-3">
+          <strong> {{ destination.name | uppercase }}</strong>
+        </h1>
+      </div>
       <!-- Excerpt -->
       <p>
         {{ destination.description }}
       </p>
-      <h3 class="badge rounded-pill bg-primary">
-        {{ destination.price | prix }}
-      </h3>
+      <div
+        mdbBtn
+        type="button"
+        [block]="true"
+        mdbWavesEffect
+        style="background-color: rgba(0, 0, 255, 0.2)"
+      >
+        <span class="Price">
+          Round-trip ticket : {{ destination.price | prix }}</span
+        >
+      </div>
+
       <br />
       <!-- Post data -->
       <!-- Read more button -->
-      <a mdbBtn color="success" mdbWavesEffect [routerLink]="['/destination', destination.name]">Check For Hotels</a>
+      <div class="d-flex justify-content-center">
+        <a
+          mdbBtn
+          color="success"
+          mdbWavesEffect
+          [routerLink]="['/destination', destination.name]"
+          >Check For Hotels</a
+        >
+      </div>
     </div>
     <!-- Grid column -->
   </div>
@@ -60,23 +79,40 @@
         </h6>
       </a>
       <!-- Post title -->
-      <h3 class="font-weight-bold mb-3">
-        <strong> {{ destination.name | uppercase }}</strong>
-      </h3>
+      <div class="d-flex justify-content-center">
+        <h1 class="font-weight-bold mb-3">
+          <strong> {{ destination.name | uppercase }}</strong>
+        </h1>
+      </div>
       <!-- Excerpt -->
       <p>
         {{ destination.description }}
       </p>
-      <h3 class="badge rounded-pill bg-primary">
-        {{ destination.price | prix }}
-      </h3>
+      <div
+        mdbBtn
+        type="button"
+        [block]="true"
+        mdbWavesEffect
+        style="background-color: rgba(0, 0, 255, 0.2)"
+      >
+        <span class="Price">
+          Round-trip ticket : {{ destination.price | prix }}</span
+        >
+      </div>
       <br />
       <!-- Post data -->
 
       <!-- Read more button -->
-      <a mdbBtn color="pink" mdbWavesEffect class="mb-lg-0 mb-4" [routerLink]="['/destination', destination.name]"
-        >Check For Hotels</a
-      >
+      <div class="d-flex justify-content-center">
+        <a
+          mdbBtn
+          color="pink"
+          mdbWavesEffect
+          class="mb-lg-0 mb-4"
+          [routerLink]="['/destination', destination.name]"
+          >Check For Hotels</a
+        >
+      </div>
     </div>
     <!-- Grid column -->
 

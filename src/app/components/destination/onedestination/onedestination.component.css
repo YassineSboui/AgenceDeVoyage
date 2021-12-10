@@ -10,3 +10,13 @@ img {
   height: 44vh;
   border-radius: 10px;
 }
+.Price{
+  font-size: 1.5vw;
+  font-family: 'Times New Roman', Times, serif;
+  color: rgba(61, 13, 13, 0.8) ;
+}
+h1{
+  font-family: 'Brush Script MT', cursive;
+  color: rgb(92, 38, 38);
+}
+

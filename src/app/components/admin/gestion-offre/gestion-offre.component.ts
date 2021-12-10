@@ -3,11 +3,11 @@ import { Offre } from 'src/app/models/offre';
 import { OffreService } from 'src/app/services/offre.service';
 
 @Component({
-  selector: 'app-offre',
-  templateUrl: './offre.component.html',
-  styleUrls: ['./offre.component.css']
+  selector: 'app-gestion-offre',
+  templateUrl: './gestion-offre.component.html',
+  styleUrls: ['./gestion-offre.component.css']
 })
-export class OffreComponent implements OnInit {
+export class GestionOffreComponent implements OnInit {
   offres: Offre[] = [];
   count: number;
   offrelist() {
@@ -15,6 +15,7 @@ export class OffreComponent implements OnInit {
       (response) => {
         this.offres = response;
         this.count = this.offres.length;
+        console.log(this.offres)
       },
       (error) => {
         console.log(error);

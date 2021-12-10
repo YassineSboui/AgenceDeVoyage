@@ -1,1 +1,166 @@
-<p>offre-reservation works!</p>
+<div id="booking" class="section">
+  <div class="section-center">
+    <div class="container">
+      <div class="row" *ngIf="!confiramtion">
+        <div
+          class="booking-form"
+          style="
+            background-image: url('https://st2.depositphotos.com/1031343/5991/v/950/depositphotos_59918789-stock-illustration-book-now-label-or-price.jpg');
+            background-size: cover;
+          "
+        >
+          <div class="form-header">
+            <h1>Make your reservation</h1>
+          </div>
+          <form>
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                placeholder="ZIP, city..."
+                #city
+              />
+              <span class="form-label">Destination</span>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    type="date"
+                    [min]="mindate"
+                    required
+                    #checkin
+                  />
+                  <span class="form-label">Check In</span>
+                </div>
+              </div>
+              <div class="col-md-6"></div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    type="email"
+                    placeholder="Enter your Email"
+                    value="{{ mail }}"
+                    #email
+                  />
+                  <span class="form-label">Email</span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    type="number"
+                    placeholder="Enter you Phone"
+                    #phone
+                  />
+                  <span class="form-label">Phone</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-btn">
+              <button
+                class="submit-btn"
+                (click)="
+                  CreateReservation(
+                    city.value,
+                    checkin.value,
+                    email.value,
+                    phone.value
+                  )
+                "
+              >
+                Book Now
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="confiramtion" style="background-color: aliceblue">
+      <div
+        class="modal-header justify-content-center"
+        style="background-color: rgb(80, 138, 247)"
+      >
+        <img
+          src="https://image.shutterstock.com/image-vector/reservation-grunge-rubber-stamp-on-260nw-1611464203.jpg"
+          style="width: 35vw; height: 15vh"
+          alt=""
+        />
+      </div>
+      <!--Body-->
+      <div class="modal-body">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Detail Name</th>
+              <th>Price/Info</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Check In</td>
+              <td>{{ check_in }}</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Destination</td>
+              <td>{{ reservation.destination }}</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Hotel</td>
+              <td>{{ reservation.hotel }}</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Period : {{ reservation.days }} Day(s)</td>
+              <td>{{ reservation.days }}</td>
+            </tr>
+
+            <tr class="total">
+              <th scope="row">5</th>
+              <td>Total</td>
+              <td>
+                <span style="text-decoration: line-through"
+                  >{{ offre.price }} TND</span
+                >
+                {{ newPrice }} TND
+              </td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!--Footer-->
+      <div class="modal-footer">
+        <button
+          type="button"
+          mdbBtn
+          color="primary"
+          [outline]="true"
+          class="waves-light"
+          mdbWavesEffect
+          (click)="back()"
+        >
+          Change Reservation
+        </button>
+        <button
+          mdbBtn
+          color="primary"
+          class="waves-light"
+          mdbWavesEffect
+          (click)="SendReservation()"
+        >
+          Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

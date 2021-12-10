@@ -1,0 +1,55 @@
+<app-adminnavbar></app-adminnavbar>
+<div class="d-flex justify-content-center">
+  <button
+    mdbBtn
+    type="button"
+    gradient="blue"
+    size="lg"
+    [block]="true"
+    style="width: 50vw; margin: 2vh"
+    mdbWavesEffect
+    data-target="#basicExample"
+    (click)="frame.show()"
+  >
+    ADD OFFER
+  </button>
+</div>
+
+<div
+  mdbModal
+  #frame="mdbModal"
+  class="modal fade top"
+  id="frameModalTop"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-notify modal-info" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <h1 class="heading lead">ADD OFFER</h1>
+
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          (click)="frame.hide()"
+        >
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="text-center"></div>
+      </div>
+
+      <!--Footer-->
+    </div>
+    <!--/.Content-->
+  </div>
+</div>

@@ -10,6 +10,7 @@ import { DashboardComponent } from './components/admin/dashboard/dashboard.compo
 import { GestiondestinationComponent } from './components/admin/gestiondestination/gestiondestination.component';
 import { GuardService } from './services/guard.service';
 import { HotelsComponent } from './components/hotels/hotels.component';
+import { GestionOffreComponent } from './components/admin/gestion-offre/gestion-offre.component';
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'signin', component: SigninComponent },
@@ -19,8 +20,13 @@ const routes: Routes = [
   { path: 'destination/:id', component: HotelsComponent },
   { path: 'admin', component: DashboardComponent, canActivate: [GuardService] },
   {
-    path: 'admin/Gestiondestination',
+    path: 'Gestiondestination',
     component: GestiondestinationComponent,
+    canActivate: [GuardService],
+  },
+  {
+    path: 'Gestionoffre',
+    component: GestionOffreComponent,
     canActivate: [GuardService],
   },
   { path: '', redirectTo: 'accueil', pathMatch: 'full' },

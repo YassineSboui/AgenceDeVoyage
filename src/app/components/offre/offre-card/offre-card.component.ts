@@ -9,7 +9,11 @@ import { Offre } from 'src/app/models/offre';
 export class OffreCardComponent implements OnInit {
   @Input() offre: Offre;
   getprice() {
-    return Number(this.offre.price) * ((100 - Number(this.offre.promo)) / 100);
+    return (
+      Number(this.offre.price) * ((100 - Number(this.offre.promo)) / 100) -
+      ((Number(this.offre.price) * ((100 - Number(this.offre.promo)) / 100)) %
+        1)
+    );
   }
   constructor() {}
 
