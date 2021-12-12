@@ -27,9 +27,10 @@ export class DashboardComponent implements OnInit {
       '-' +
       (today.getMonth() + 1) +
       '-' +
-      today.getDate();
+      (today.getDate()+1);
 
     for (let index = 0; index < acceptedreservation.length; index++) {
+      console.log(new Date(acceptedreservation[index].checkin) < new Date(date));
       if (new Date(acceptedreservation[index].checkin) < new Date(date)) {
         this.reservationService
           .deleteReservation(acceptedreservation[index]._id)

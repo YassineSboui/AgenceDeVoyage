@@ -1,1 +1,171 @@
-<p>ajouteroffre works!</p>
+<div class="container">
+  <form [formGroup]="OffreForm">
+    <div class="row">
+      <div class="col-6">
+        Destination
+        <select
+          class="form-select"
+          placeholder="Choose your option"
+          aria-label="Default select example"
+          #city
+          formControlName="destination"
+          (click)="getcity(city.value)"
+        >
+          <option *ngFor="let des of destinations" [value]="des.name">
+            {{ des.name }}
+          </option>
+        </select>
+      </div>
+      <div class="col-6">
+        Hotels
+        <select
+          class="form-select"
+          placeholder="Choose your option"
+          aria-label="Default select example"
+          formControlName="hotel"
+        >
+          <option *ngFor="let des of cityhotels" [value]="des.name">
+            {{ des.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="row" style="padding-top: 2vh">
+      <div class="col-md-4">
+        Rooms
+        <div class="form-group">
+          <select class="form-control" required formControlName="rooms">
+            <option value="" selected hidden>Rooms</option>
+            <option [value]="1">1</option>
+            <option [value]="2">2</option>
+            <option [value]="3">3</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-4">
+        Adults
+        <div class="form-group">
+          <select class="form-control" required formControlName="adults">
+            <option value="" selected hidden>Adults</option>
+            <option [value]="1">1</option>
+            <option [value]="2">2</option>
+            <option [value]="3">3</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-4">
+        Children
+        <div class="form-group">
+          <select class="form-control" required formControlName="children">
+            <option value="" selected hidden>Children</option>
+            <option [value]="0">0</option>
+            <option [value]="1">1</option>
+            <option [value]="2">2</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        days
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="number"
+            min="1"
+            max="60"
+            placeholder="Days"
+            required
+            formControlName="days"
+          />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <button
+          type="button"
+          mdbBtn
+          color="info"
+          mdbWavesEffect
+          size="sm"
+          (click)="checkprice()"
+        >
+          check price
+        </button>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="number"
+            disabled
+            required
+            placeholder="Prix"
+            [value]="price"
+            [hidden]="continue"
+          />
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!continue">
+      <div class="row">
+        <div class="col-12">
+          Promo
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="number"
+              formControlName="promo"
+              required
+              placeholder="Promo"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div>
+            Liste des images
+            <input
+              type="button"
+              value="+ Image"
+              class="btn btn-secondary btn-sm"
+              (click)="onAjouter()"
+            />
+            <br />
+            <div formArrayName="images">
+              <div *ngFor="let p of images.controls; index as i">
+                <label> Image N°: {{ i + 1 }}</label>
+                <input type="text" class="form-control" [formControlName]="i" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div>
+            Description
+            <textarea
+              class="form-control"
+              placeholder="Leave a comment here"
+              id="floatingTextarea2"
+              style="height: 100px"
+              formControlName="desc"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <button
+        mdbBtn
+        type="button"
+        gradient="purple"
+        size="lg"
+        mdbWavesEffect
+        (click)="ajouteroffre()"
+      >
+        ADD OFFER
+      </button>
+    </div>
+  </form>
+</div>

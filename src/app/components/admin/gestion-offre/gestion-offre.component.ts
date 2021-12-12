@@ -5,7 +5,7 @@ import { OffreService } from 'src/app/services/offre.service';
 @Component({
   selector: 'app-gestion-offre',
   templateUrl: './gestion-offre.component.html',
-  styleUrls: ['./gestion-offre.component.css']
+  styleUrls: ['./gestion-offre.component.css'],
 })
 export class GestionOffreComponent implements OnInit {
   offres: Offre[] = [];
@@ -15,7 +15,6 @@ export class GestionOffreComponent implements OnInit {
       (response) => {
         this.offres = response;
         this.count = this.offres.length;
-        console.log(this.offres)
       },
       (error) => {
         console.log(error);
@@ -23,10 +22,9 @@ export class GestionOffreComponent implements OnInit {
     );
   }
 
-  constructor(private offreService: OffreService) { }
+  constructor(private offreService: OffreService) {}
 
   ngOnInit(): void {
-    this.offrelist()
+    this.offrelist();
   }
-
 }

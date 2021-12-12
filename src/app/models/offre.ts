@@ -10,6 +10,6 @@ export class Offre {
     public price: Number,
     public promo: Number,
     public images: [String],
-    public _id: String
+    public _id?: String
   ) {}
 }

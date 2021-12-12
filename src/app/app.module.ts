@@ -46,6 +46,7 @@ import { OffreCardComponent } from './components/offre/offre-card/offre-card.com
 import { OffreReservationComponent } from './components/offre/offre-reservation/offre-reservation.component';
 import { GestionOffreComponent } from './components/admin/gestion-offre/gestion-offre.component';
 import { AjouteroffreComponent } from './components/admin/gestion-offre/ajouteroffre/ajouteroffre.component';
+import { SuppOffreComponent } from './components/admin/gestion-offre/supp-offre/supp-offre.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,7 +82,8 @@ import { AjouteroffreComponent } from './components/admin/gestion-offre/ajoutero
     OffreCardComponent,
     OffreReservationComponent,
     GestionOffreComponent,
-    AjouteroffreComponent
+    AjouteroffreComponent,
+    SuppOffreComponent
 
   ],
   imports: [

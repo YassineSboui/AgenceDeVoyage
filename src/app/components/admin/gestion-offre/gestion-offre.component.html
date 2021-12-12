@@ -14,9 +14,13 @@
     ADD OFFER
   </button>
 </div>
+<div class="d-flex justify-content-center" *ngFor="let offre of offres">
+  <app-supp-offre [offre]="offre"></app-supp-offre>
+</div>
 
 <div
   mdbModal
+  style="overflow-y: auto"
   #frame="mdbModal"
   class="modal fade top"
   id="frameModalTop"
@@ -45,7 +49,9 @@
 
       <!--Body-->
       <div class="modal-body">
-        <div class="text-center"></div>
+        <div class="text-center">
+          <app-ajouteroffre></app-ajouteroffre>
+        </div>
       </div>
 
       <!--Footer-->
